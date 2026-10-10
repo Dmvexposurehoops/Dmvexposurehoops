@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DMVExposureHoops | Watchlists</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111111, #1b001f);
+      padding: 35px 20px;
+      text-align: center;
+      border-bottom: 2px solid #7b00ff;
+    }
+
+    header h1 {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    header h1 span {
+      color: #8a00ff;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #bbb;
+      font-size: 16px;
+    }
+
+    nav {
+      background: #0d0d0d;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #292929;
+    }
+
+    nav button {
+      background: #181818;
+      color: white;
+      border: 1px solid #444;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: #7200ff;
+      border-color: #9b40ff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 45px 20px 25px;
+    }
+
+    .hero h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #aaa;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .watchlist {
+      max-width: 1000px;
+      margin: 20px auto 60px;
+      padding: 0 20px;
+      display: none;
+    }
+
+    .watchlist.active {
+      display: block;
+    }
+
+    .class-title {
+      text-align: center;
+      font-size: 38px;
+      font-weight: 900;
+      color: #8a00ff;
+      margin: 20px 0 30px;
+    }
+
+    .players {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .player {
+      background: linear-gradient(135deg, #111111, #191919);
+      border: 1px solid #5f00b8;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.2s;
+    }
+
+    .player:hover {
+      transform: translateY(-2px);
+      border-color: #a000ff;
+      box-shadow: 0 0 15px rgba(130, 0, 255, 0.25);
+    }
+
+    .player-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .number {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #7200ff;
+      border-radius: 7px;
+      font-weight: 900;
+    }
+
+    .name {
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .height {
+      color: #a947ff;
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    .bottom {
+      text-align: center;
+      padding: 35px 20px;
+      background: #0b0b0b;
+      border-top: 1px solid #292929;
+      color: #888;
+    }
+
+    .bottom strong {
+      color: #8a00ff;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      .players {
+        grid-template-columns: 1fr;
+      }
+
+      .class-title {
+        font-size: 32px;
+      }
+
+      nav {
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+
+      nav button {
+        flex-shrink: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>DMV<span>ExposureHoops</span></h1>
+  <p>Basketball • Football • Exposure</p>
+</header>
+
+<nav>
+  <button class="class-btn active" onclick="showClass('2028', this)">2028</button>
+  <button class="class-btn" onclick="showClass('2029', this)">2029</button>
+  <button class="class-btn" onclick="showClass('2030', this)">2030</button>
+  <button class="class-btn" onclick="showClass('2031', this)">2031</button>
+</nav>
+
+<section class="hero">
+  <h2>DMV Watchlists</h2>
+  <p>
+    Check out some of the players DMVExposureHoops is keeping an eye on.
+    Watchlists are updated as new talent emerges.
+  </p>
+</section>
+
+
+<!-- ========================= -->
+<!-- CLASS OF 2028 -->
+<!-- ========================= -->
+
+<section id="2028" class="watchlist active">
+
+  <div class="class-title">CLASS OF 2028</div>
+
+  <div class="players">
+
+    <div class="player"><div class="player-left"><div class="number">1</div><div class="name">Micah Hogg</div></div><div class="height">6'1"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">2</div><div class="name">Lennox Zelaya</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">3</div><div class="name">Bryson Robinson</div></div><div class="height">5'11"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">4</div><div class="name">Carmelo Kalbach IV</div></div><div class="height">5'5"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">5</div><div class="name">Mason Brown</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">6</div><div class="name">Breshun Wilson</div></div><div class="height">5'11"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">7</div><div class="name">MJ Patterson</div></div><div class="height">5'7"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">8</div><div class="name">Miguel Novoa</div></div><div class="height">5'9"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">9</div><div class="name">Aaron Carswell</div></div><div class="height">5'5"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">10</div><div class="name">Cael Quattlebaum</div></div><div class="height">6'2"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">11</div><div class="name">Britan Johnson</div></div><div class="height">6'4"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">12</div><div class="name">Joweliel Cubero</div></div><div class="height">6'2"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">13</div><div class="name">Christian Lyle</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">14</div><div class="name">Israel Akinnawonu</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">15</div><div class="name">Jairus Shaw-Taylor</div></div><div class="height">5'11"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">16</div><div class="name">Correy Johnson</div></div><div class="height">5'8"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">17</div><div class="name">Kare Evans</div></div><div class="height">6'1"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">18</div><div class="name">Eden Mayala</div></div><div class="height">6'5"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">19</div><div class="name">Tristan Hutchins</div></div><div class="height">5'9"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">20</div><div class="name">Kian Towles</div></div><div class="height">5'9"</div></div>
+
+  </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- CLASS OF 2029 -->
+<!-- ========================= -->
+
+<section id="2029" class="watchlist">
+
+  <div class="class-title">CLASS OF 2029</div>
+
+  <div class="players">
+
+    <div class="player"><div class="player-left"><div class="number">1</div><div class="name">Noah Vasquez</div></div><div class="height">5'11"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">2</div><div class="name">Julian Soto</div></div><div class="height">5'7"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">3</div><div class="name">Kalvin Byrd</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">4</div><div class="name">Heath Collins</div></div><div class="height">6'4"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">5</div><div class="name">Kaleb Schrader</div></div><div class="height">5'7"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">6</div><div class="name">Mason Wilcox</div></div><div class="height">5'8"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">7</div><div class="name">Zyqoun Roberts</div></div><div class="height">6'2"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">8</div><div class="name">Jacob Rainey</div></div><div class="height">6'3"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">9</div><div class="name">Jeremiah Harris</div></div><div class="height">6'5"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">10</div><div class="name">Joseph McGill</div></div><div class="height">5'11"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">11</div><div class="name">Truett Crosby</div></div><div class="height">5'7"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">12</div><div class="name">Jace Nunley</div></div><div class="height">5'6"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">13</div><div class="name">Tyler Adams</div></div><div class="height">6'1"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">14</div><div class="name">Cameron Moore</div></div><div class="height">5'10"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">15</div><div class="name">Michael Ealey Jr</div></div><div class="height">5'9"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">16</div><div class="name">Johann Rodriguez</div></div><div class="height">5'6"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">17</div><div class="name">Ayden Burress</div></div><div class="height">5'10"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">18</div><div class="name">Mansoor Mohammed</div></div><div class="height">5'7"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">19</div><div class="name">Bryce Ureña</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">20</div><div class="name">Johnny Merlo</div></div><div class="height">6'3"</div></div>
+
+  </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- CLASS OF 2030 -->
+<!-- ========================= -->
+
+<section id="2030" class="watchlist">
+
+  <div class="class-title">CLASS OF 2030</div>
+
+  <div class="players">
+
+    <div class="player"><div class="player-left"><div class="number">1</div><div class="name">Jacob Torres</div></div><div class="height">5'10"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">2</div><div class="name">Tamir Orr</div></div><div class="height">6'1"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">3</div><div class="name">Liam Gonzalez</div></div><div class="height">5'11"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">4</div><div class="name">Henry Merritt</div></div><div class="height">5'8"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">5</div><div class="name">Mason Gonzales</div></div><div class="height">5'7"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">6</div><div class="name">DJ Spears</div></div><div class="height">5'9"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">7</div><div class="name">Ishamell McCany</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">8</div><div class="name">Kayleb Wilson</div></div><div class="height">6'3"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">9</div><div class="name">Amare Rodriguez</div></div><div class="height">6'1"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">10</div><div class="name">Ricky Anderson</div></div><div class="height">5'11"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">11</div><div class="name">Peyton Scott</div></div><div class="height">5'9"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">12</div><div class="name">Dandrea Freeman</div></div><div class="height">5'9"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">13</div><div class="name">Andreas Miranda</div></div><div class="height">6'3"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">14</div><div class="name">Marquise Joseph</div></div><div class="height">5'8"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">15</div><div class="name">Robert Walker</div></div><div class="height">6'1"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">16</div><div class="name">CJ Ansari</div></div><div class="height">5'9"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">17</div><div class="name">Christopher Bou</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">18</div><div class="name">Edwin Morales Chan</div></div><div class="height">5'9"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">19</div><div class="name">Dylan Hall</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">20</div><div class="name">Allen Adeoye</div></div><div class="height">5'10"</div></div>
+
+  </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- CLASS OF 2031 -->
+<!-- ========================= -->
+
+<section id="2031" class="watchlist">
+
+  <div class="class-title">CLASS OF 2031</div>
+
+  <div class="players">
+
+    <div class="player"><div class="player-left"><div class="number">1</div><div class="name">Titan Jamison</div></div><div class="height">5'8"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">2</div><div class="name">Henry Johnson</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">3</div><div class="name">Samuel Bundu</div></div><div class="height">5'6"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">4</div><div class="name">Nate Gbagi</div></div><div class="height">6'1"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">5</div><div class="name">Raymond Stewart</div></div><div class="height">5'5"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">6</div><div class="name">Jordan Lee</div></div><div class="height">5'7"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">7</div><div class="name">EJ Potts</div></div><div class="height">5'11"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">8</div><div class="name">Yeudiel Matos</div></div><div class="height">5'5"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">9</div><div class="name">Keegan Hepner</div></div><div class="height">6'3"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">10</div><div class="name">Andre Reese</div></div><div class="height">5'10"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">11</div><div class="name">Toryon Finster</div></div><div class="height">5'4"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">12</div><div class="name">Tyson Bizzelle</div></div><div class="height">5'3"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">13</div><div class="name">Davieon Fields</div></div><div class="height">5'9"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">14</div><div class="name">Jeremy Caceres</div></div><div class="height">5'11"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">15</div><div class="name">Graeson Porter</div></div><div class="height">6'0"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">16</div><div class="name">Navarre Champ-Nelson</div></div><div class="height">5'5"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">17</div><div class="name">Marquell Wright</div></div><div class="height">5'9"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">18</div><div class="name">Kingsley Chen</div></div><div class="height">5'8"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">19</div><div class="name">Jordan Pesseh</div></div><div class="height">5'10"</div></div>
+
+    <div class="player"><div class="player-left"><div class="number">20</div><div class="name">Dylan Morris</div></div><div class="height">5'9"</div></div>
+
+  </div>
+</section>
+
+
+<footer class="bottom">
+  <strong>DMVExposureHoops</strong><br><br>
+  Talent Today • Stars Tomorrow
+</footer>
+
+
+<script>
+
+function showClass(year, button) {
+
+  // Hide every watchlist
+  document.querySelectorAll('.watchlist').forEach(function(section) {
+    section.classList.remove('active');
+  });
+
+  // Remove active button
+  document.querySelectorAll('.class-btn').forEach(function(btn) {
+    btn.classList.remove('active');
+  });
+
+  // Show selected class
+  document.getElementById(year).classList.add('active');
+
+  // Highlight selected button
+  button.classList.add('active');
+
+}
+
+</script>
+
+</body>
+</html>
