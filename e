@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DMVExposureHoops</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080a0f;
+    color: white;
+}
+
+header {
+    background: #0d1017;
+    border-bottom: 1px solid #242833;
+    padding: 18px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+}
+
+.logo span {
+    color: #ff6a00;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav button {
+    background: transparent;
+    border: none;
+    color: #b8bec9;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+nav button:hover,
+nav button.active {
+    color: white;
+    background: #1b1f28;
+}
+
+.page {
+    display: none;
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 5%;
+}
+
+.page.active {
+    display: block;
+}
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 8vw, 76px);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.orange {
+    color: #ff6a00;
+}
+
+.hero p {
+    color: #a9afba;
+    font-size: 18px;
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 14px 22px;
+    border-radius: 10px;
+    background: #ff6a00;
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #e95f00;
+}
+
+.section-title {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #9299a5;
+    margin-bottom: 30px;
+}
+
+.watchlist-header {
+    background: linear-gradient(135deg, #141821, #0c0f15);
+    border: 1px solid #282d38;
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+.watchlist-header h1 {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+.month {
+    color: #ff6a00;
+    font-weight: 800;
+}
+
+.player-list {
+    display: grid;
+    gap: 12px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px;
+    background: #11141b;
+    border: 1px solid #242a34;
+    border-radius: 12px;
+}
+
+.player-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 9px;
+    background: #ff6a00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+}
+
+.player-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.player-info p {
+    color: #9299a5;
+    font-size: 14px;
+}
+
+.archive {
+    margin-top: 40px;
+}
+
+.archive h2 {
+    margin-bottom: 15px;
+}
+
+.archive-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.archive-buttons button {
+    background: #171b23;
+    color: #d7dbe2;
+    border: 1px solid #2a303b;
+    padding: 11px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.archive-buttons button:hover {
+    border-color: #ff6a00;
+    color: #ff6a00;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.service {
+    background: #11141b;
+    border: 1px solid #292f3a;
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.2s;
+}
+
+.service:hover {
+    transform: translateY(-3px);
+    border-color: #ff6a00;
+}
+
+.service h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.price {
+    color: #ff6a00;
+    font-size: 30px;
+    font-weight: 900;
+    margin: 12px 0;
+}
+
+.service p {
+    color: #9299a5;
+    line-height: 1.5;
+    min-height: 50px;
+}
+
+.service button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px;
+    background: #ff6a00;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.info-box {
+    background: #10131a;
+    border: 1px solid #282e39;
+    border-radius: 14px;
+    padding: 22px;
+    margin-top: 30px;
+    color: #aab0bb;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #707783;
+    border-top: 1px solid #202530;
+    margin-top: 50px;
+}
+
+@media (max-width: 700px) {
+    header {
+        position: relative;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    nav button {
+        white-space: nowrap;
+    }
+
+    .page {
+        padding: 35px 18px;
+    }
+
+    .hero {
+        padding: 45px 10px;
+    }
+
+    .player {
+        padding: 14px;
+    }
+
+    .watchlist-header h1 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <div class="logo">
+            DMV<span>Exposure</span>Hoops
+        </div>
+
+        <nav>
+            <button onclick="showPage('home')" id="nav-home">Home</button>
+            <button onclick="showPage('2028')" id="nav-2028">2028</button>
+            <button onclick="showPage('2029')" id="nav-2029">2029</button>
+            <button onclick="showPage('2030')" id="nav-2030">2030</button>
+            <button onclick="showPage('2031')" id="nav-2031">2031</button>
+            <button onclick="showPage('shop')" id="nav-shop">Buy Posts</button>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- HOME -->
+
+<section class="page active" id="home">
+
+    <div class="hero">
+
+        <h1>
+            Get Your Name<br>
+            <span class="orange">Out There.</span>
+        </h1>
+
+        <p>
+            DMVExposureHoops is built to help basketball players
+            across the DMV get exposure, build their name and
+            get seen by coaches, teams and basketball communities.
+        </p>
+
+        <button class="btn" onclick="showPage('shop')">
+            Get Featured
+        </button>
+
+    </div>
+
+    <div class="info-box">
+        <strong>Monthly Watchlists</strong><br>
+        Check out our basketball watchlists for the classes of
+        2028, 2029, 2030 and 2031. Watchlists are updated monthly,
+        while previous versions remain available in the archive.
+    </div>
+
+</section>
+
+
+<!-- 2028 -->
+
+<section class="page" id="2028">
+
+    <div class="watchlist-header">
+        <h1>2028 Watchlist</h1>
+        <p class="month">October 2026 Edition</p>
+    </div>
+
+    <p class="section-subtitle">
+        DMVExposureHoops 2028 Basketball Watchlist
+    </p>
+
+    <div class="player-list">
+
+        <div class="player">
+            <div class="player-number">1</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>6'1" • Guard • School / AAU</p>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="player-number">2</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>6'3" • Wing • School / AAU</p>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="player-number">3</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>5'11" • Guard • School / AAU</p>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="player-number">4</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>6'4" • Forward • School / AAU</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="archive">
+
+        <h2>Previous Watchlists</h2>
+
+        <div class="archive-buttons">
+            <button>September 2026</button>
+            <button>August 2026</button>
+            <button>July 2026</button>
+            <button>June 2026</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 2029 -->
+
+<section class="page" id="2029">
+
+    <div class="watchlist-header">
+        <h1>2029 Watchlist</h1>
+        <p class="month">October 2026 Edition</p>
+    </div>
+
+    <p class="section-subtitle">
+        DMVExposureHoops 2029 Basketball Watchlist
+    </p>
+
+    <div class="player-list">
+
+        <div class="player">
+            <div class="player-number">1</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>6'5" • Wing • School / AAU</p>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="player-number">2</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>6'2" • Guard • School / AAU</p>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="player-number">3</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>6'4" • Forward • School / AAU</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="archive">
+
+        <h2>Previous Watchlists</h2>
+
+        <div class="archive-buttons">
+            <button>September 2026</button>
+            <button>August 2026</button>
+            <button>July 2026</button>
+            <button>June 2026</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 2030 -->
+
+<section class="page" id="2030">
+
+    <div class="watchlist-header">
+        <h1>2030 Watchlist</h1>
+        <p class="month">October 2026 Edition</p>
+    </div>
+
+    <p class="section-subtitle">
+        DMVExposureHoops 2030 Basketball Watchlist
+    </p>
+
+    <div class="player-list">
+
+        <div class="player">
+            <div class="player-number">1</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>6'0" • Guard • School / AAU</p>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="player-number">2</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>5'10" • Guard • School / AAU</p>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="player-number">3</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>6'2" • Wing • School / AAU</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="archive">
+
+        <h2>Previous Watchlists</h2>
+
+        <div class="archive-buttons">
+            <button>September 2026</button>
+            <button>August 2026</button>
+            <button>July 2026</button>
+            <button>June 2026</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 2031 -->
+
+<section class="page" id="2031">
+
+    <div class="watchlist-header">
+        <h1>2031 Watchlist</h1>
+        <p class="month">October 2026 Edition</p>
+    </div>
+
+    <p class="section-subtitle">
+        DMVExposureHoops 2031 Basketball Watchlist
+    </p>
+
+    <div class="player-list">
+
+        <div class="player">
+            <div class="player-number">1</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>5'8" • Guard • School / AAU</p>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="player-number">2</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>6'0" • Wing • School / AAU</p>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="player-number">3</div>
+            <div class="player-info">
+                <h3>Player Name</h3>
+                <p>5'11" • Guard • School / AAU</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="archive">
+
+        <h2>Previous Watchlists</h2>
+
+        <div class="archive-buttons">
+            <button>September 2026</button>
+            <button>August 2026</button>
+            <button>July 2026</button>
+            <button>June 2026</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BUY POSTS -->
+
+<section class="page" id="shop">
+
+    <h1 class="section-title">Buy Posts</h1>
+
+    <p class="section-subtitle">
+        Get your name out there with DMVExposureHoops.
+        Choose a service below.
+    </p>
+
+    <div class="shop-grid">
+
+        <div class="service">
+            <h3>Watchlist Spot</h3>
+            <div class="price">$3</div>
+            <p>
+                Get considered for a spot on one of our
+                class watchlists.
+            </p>
+            <button onclick="order('Watchlist Spot')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="service">
+            <h3>Exposure Post</h3>
+            <div class="price">$7</div>
+            <p>
+                Get a dedicated exposure post featuring
+                your basketball profile.
+            </p>
+            <button onclick="order('Exposure Post')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="service">
+            <h3>Writeup</h3>
+            <div class="price">$7</div>
+            <p>
+                A player writeup highlighting your game,
+                strengths and information.
+            </p>
+            <button onclick="order('Writeup')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="service">
+            <h3>Statline</h3>
+            <div class="price">$7</div>
+            <p>
+                Have your performance turned into a clean
+                statline post.
+            </p>
+            <button onclick="order('Statline')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="service">
+            <h3>Graphic Post</h3>
+            <div class="price">$7</div>
+            <p>
+                Get a custom basketball graphic made for
+                your player profile.
+            </p>
+            <button onclick="order('Graphic Post')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="service">
+            <h3>Highlight Reel</h3>
+            <div class="price">$10</div>
+            <p>
+                Have your highlights edited into an
+                exposure-ready reel.
+            </p>
+            <button onclick="order('Highlight Reel')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="service">
+            <h3>Writeup + Highlights</h3>
+            <div class="price">$12</div>
+            <p>
+                Combine a player writeup with your
+                highlight footage.
+            </p>
+            <button onclick="order('Writeup + Highlights')">
+                Buy Now
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="info-box">
+
+        <strong>How to order</strong><br><br>
+
+        Choose the service you want and send your player
+        information through DMVExposureHoops.
+
+        <br><br>
+
+        Payment methods and submission instructions will be
+        provided after selecting your service.
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    DMVExposureHoops<br>
+    Basketball Exposure • Watchlists • Player Features
+
+</footer>
+
+
+<script>
+
+function showPage(page) {
+
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(section) {
+        section.classList.remove("active");
+    });
+
+    const selected = document.getElementById(page);
+
+    if (selected) {
+        selected.classList.add("active");
+    }
+
+    const navButtons = document.querySelectorAll("nav button");
+
+    navButtons.forEach(function(button) {
+        button.classList.remove("active");
+    });
+
+    const activeButton = document.getElementById("nav-" + page);
+
+    if (activeButton) {
+        activeButton.classList.add("active");
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function order(service) {
+
+    alert(
+        "You selected: " +
+        service +
+        "\n\nPayment and player submission will be connected here."
+    );
+
+}
+
+
+// Start on Home
+showPage("home");
+
+</script>
+
+</body>
+</html>
