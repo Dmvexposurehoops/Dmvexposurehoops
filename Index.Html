@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DMVExposureHoops</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0a0a0a;
+      color: white;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10,10,10,0.97);
+      border-bottom: 1px solid #292929;
+      padding: 15px 5%;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #ff7a00;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ff7a00;
+    }
+
+    /* PAGE SYSTEM */
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      background:
+        radial-gradient(circle at center, #33200d 0%, #121212 45%, #080808 100%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 82px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #ff7a00;
+    }
+
+    .hero p {
+      color: #bbb;
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-orange {
+      background: #ff7a00;
+      color: white;
+    }
+
+    .btn-dark {
+      background: #202020;
+      color: white;
+      border: 1px solid #444;
+    }
+
+    /* GENERAL */
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      font-weight: 900;
+    }
+
+    .section-title p {
+      color: #999;
+      margin-top: 5px;
+    }
+
+    /* CARDS */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #121212;
+      border: 1px solid #292929;
+      border-radius: 10px;
+      padding: 25px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      border-color: #ff7a00;
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #aaa;
+    }
+
+    /* PLAYER CARDS */
+
+    .player-card {
+      background: #121212;
+      border: 1px solid #292929;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .player-top {
+      padding: 25px;
+      background: linear-gradient(135deg, #191919, #0d0d0d);
+    }
+
+    .player-class {
+      color: #ff7a00;
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .player-name {
+      font-size: 27px;
+      font-weight: 900;
+      margin-top: 5px;
+    }
+
+    .player-info {
+      padding: 20px 25px;
+    }
+
+    .player-info p {
+      margin: 5px 0;
+      color: #bbb;
+    }
+
+    .player-info strong {
+      color: white;
+    }
+
+    /* WATCHLIST */
+
+    .watchlist-card {
+      background: #121212;
+      border: 1px solid #292929;
+      border-radius: 10px;
+      padding: 25px;
+    }
+
+    .watchlist-card h3 {
+      color: #ff7a00;
+      margin-bottom: 5px;
+    }
+
+    .watchlist-card .date {
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .watchlist-player {
+      display: flex;
+      justify-content: space-between;
+      padding: 11px 0;
+      border-bottom: 1px solid #252525;
+    }
+
+    .watchlist-player:last-child {
+      border-bottom: none;
+    }
+
+    .watchlist-player span:last-child {
+      color: #aaa;
+    }
+
+    /* ARTICLES */
+
+    .article-card {
+      background: #121212;
+      border: 1px solid #292929;
+      border-radius: 10px;
+      padding: 25px;
+    }
+
+    .article-card .article-class {
+      color: #ff7a00;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .article-card h3 {
+      margin: 8px 0;
+      font-size: 23px;
+    }
+
+    .article-card p {
+      color: #aaa;
+      white-space: pre-line;
+    }
+
+    .article-date {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    /* PROFILE */
+
+    .profile-header {
+      background:
+        radial-gradient(circle at center, #35200d, #101010 60%);
+      padding: 70px 20px;
+    }
+
+    .profile-header-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .profile-label {
+      color: #ff7a00;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .profile-header h1 {
+      font-size: clamp(40px, 7vw, 70px);
+      font-weight: 900;
+      margin: 5px 0;
+    }
+
+    .profile-header p {
+      color: #bbb;
+      font-size: 18px;
+    }
+
+    .profile-stats {
+      max-width: 1100px;
+      margin: -30px auto 0;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      padding: 0 20px;
+    }
+
+    .stat {
+      background: #171717;
+      border: 1px solid #303030;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      color: #ff7a00;
+      font-size: 22px;
+    }
+
+    .profile-content {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .profile-content h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .profile-bio {
+      color: #bbb;
+      font-size: 17px;
+      white-space: pre-line;
+      max-width: 850px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #292929;
+      background: #080808;
+      padding: 40px 20px;
+      text-align: center;
+      color: #777;
+    }
+
+    footer strong {
+      color: #ff7a00;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 430px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <div class="nav-container">
+
+    <div class="logo">
+      DMV<span>Exposure</span>Hoops
+    </div>
+
+    <ul class="nav-links">
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('players')">Players</a></li>
+      <li><a onclick="showPage('watchlists')">Watchlists</a></li>
+      <li><a onclick="showPage('articles')">Articles</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+  <div class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        DMV<span>Exposure</span>Hoops
+      </h1>
+
+      <p>
+        Basketball exposure, player profiles, watchlists and player coverage
+        for the next generation of talent.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-orange" onclick="showPage('players')">
+          View Players
+        </button>
+
+        <button class="btn btn-dark" onclick="showPage('watchlists')">
+          View Watchlists
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>What We Do</h2>
+      <p>Helping young basketball players build their exposure.</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Player Profiles</h3>
+        <p>
+          Detailed player profiles featuring height, position, school,
+          AAU team, bio and highlight links.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Watchlists</h3>
+        <p>
+          Follow different DMVExposureHoops watchlists and see players
+          featured throughout each update.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Player Articles</h3>
+        <p>
+          Game performances, player updates and coverage of young
+          basketball talent.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Exposure</h3>
+        <p>
+          Giving players another platform to get their name and game
+          in front of basketball fans and coaches.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PLAYERS -->
+
+<section id="players" class="page">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Player Profiles</h2>
+      <p>Players featured by DMVExposureHoops.</p>
+    </div>
+
+    <div id="players-container" class="grid"></div>
+
+  </div>
+
+</section>
+
+
+<!-- WATCHLISTS -->
+
+<section id="watchlists" class="page">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Watchlists</h2>
+      <p>DMVExposureHoops watchlist updates.</p>
+    </div>
+
+    <div id="watchlists-container"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ARTICLES -->
+
+<section id="articles" class="page">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Articles & Player Updates</h2>
+      <p>Player performances, updates and coverage.</p>
+    </div>
+
+    <div id="articles-container" class="grid"></div>
+
+  </div>
+
+</section>
+
+
+<!-- INDIVIDUAL PROFILE -->
+
+<section id="profile" class="page">
+
+  <div id="profile-header"></div>
+
+  <div id="profile-stats"></div>
+
+  <div class="profile-content">
+
+    <h2>About the Player</h2>
+
+    <div id="profile-bio" class="profile-bio"></div>
+
+    <br>
+
+    <a
+      id="profile-highlight"
+      class="btn btn-orange"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Watch Highlight Reel
+    </a>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <p>
+    <strong>DMVExposureHoops</strong>
+  </p>
+
+  <p>
+    Basketball Exposure • Player Profiles • Watchlists • Articles
+  </p>
+
+</footer>
+
+
+<!-- YOUR DATA FILES -->
+
+<script src="players.js"></script>
+<script src="watchlists.js"></script>
+<script src="articles.js"></script>
+
+
+<!-- WEBSITE FUNCTIONALITY -->
+
+<script>
+
+function showPage(pageId) {
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  const page = document.getElementById(pageId);
+
+  if (page) {
+    page.classList.add("active");
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+/* PLAYERS */
+
+function loadPlayers() {
+
+  const container = document.getElementById("players-container");
+
+  container.innerHTML = "";
+
+  players.forEach((player, index) => {
+
+    const card = document.createElement("div");
+
+    card.className = "player-card";
+
+    card.innerHTML = `
+
+      <div class="player-top">
+
+        <div class="player-class">
+          Class of ${player.classYear}
+        </div>
+
+        <div class="player-name">
+          ${player.name}
+        </div>
+
+      </div>
+
+      <div class="player-info">
+
+        <p><strong>Height:</strong> ${player.height}</p>
+
+        <p><strong>Weight:</strong> ${player.weight}</p>
+
+        <p><strong>Position:</strong> ${player.position}</p>
+
+        <p><strong>School:</strong> ${player.school}</p>
+
+        <p><strong>AAU:</strong> ${player.aauTeam}</p>
+
+        <br>
+
+        <button
+          class="btn btn-orange"
+          onclick="openProfile(${index})"
+        >
+          View Full Profile
+        </button>
+
+      </div>
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+/* INDIVIDUAL PROFILE */
+
+function openProfile(index) {
+
+  const player = players[index];
+
+  document.getElementById("profile-header").innerHTML = `
+
+    <div class="profile-header">
+
+      <div class="profile-header-inner">
+
+        <div class="profile-label">
+          Class of ${player.classYear}
+        </div>
+
+        <h1>${player.name}</h1>
+
+        <p>
+          ${player.position} • ${player.school}
+        </p>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  document.getElementById("profile-stats").innerHTML = `
+
+    <div class="profile-stats">
+
+      <div class="stat">
+        <strong>${player.height}</strong>
+        Height
+      </div>
+
+      <div class="stat">
+        <strong>${player.weight}</strong>
+        Weight
+      </div>
+
+      <div class="stat">
+        <strong>${player.position}</strong>
+        Position
+      </div>
+
+      <div class="stat">
+        <strong>${player.classYear}</strong>
+        Class
+      </div>
+
+      <div class="stat">
+        <strong>${player.aauTeam}</strong>
+        AAU
+      </div>
+
+    </div>
+
+  `;
+
+
+  document.getElementById("profile-bio").textContent = player.bio;
+
+
+  const highlight = document.getElementById("profile-highlight");
+
+  if (player.highlightLink) {
+
+    highlight.href = player.highlightLink;
+    highlight.style.display = "inline-block";
+
+  } else {
+
+    highlight.style.display = "none";
+
+  }
+
+
+  showPage("profile");
+
+}
+
+
+/* WATCHLISTS */
+
+function loadWatchlists() {
+
+  const container =
+    document.getElementById("watchlists-container");
+
+  container.innerHTML = "";
+
+  watchlists.forEach(list => {
+
+    const card = document.createElement("div");
+
+    card.className = "watchlist-card";
+
+    let playersHTML = "";
+
+    list.players.forEach((player, index) => {
+
+      playersHTML += `
+
+        <div class="watchlist-player">
+
+          <span>
+            ${index + 1}. ${player.name}
+          </span>
+
+          <span>
+            ${player.height || ""}
+          </span>
+
+        </div>
+
+      `;
+
+    });
+
+
+    card.innerHTML = `
+
+      <h3>
+        ${list.classYear} Watchlist
+      </h3>
+
+      <div class="date">
+        ${list.title}
+      </div>
+
+      ${playersHTML}
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+/* ARTICLES */
+
+function loadArticles() {
+
+  const container =
+    document.getElementById("articles-container");
+
+  container.innerHTML = "";
+
+  articles.forEach(article => {
+
+    const card = document.createElement("div");
+
+    card.className = "article-card";
+
+    card.innerHTML = `
+
+      <div class="article-class">
+        Class of ${article.classYear}
+      </div>
+
+      <h3>
+        ${article.title}
+      </h3>
+
+      <div class="article-date">
+        ${article.date}
+      </div>
+
+      <p>
+        ${article.content}
+      </p>
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+/* LOAD EVERYTHING */
+
+loadPlayers();
+loadWatchlists();
+loadArticles();
+
+</script>
+
+</body>
+</html>
