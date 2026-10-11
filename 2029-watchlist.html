@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>2029 October Watchlist | DMVExposureHoops</title>
+<title>2029 Watchlist | DMVExposureHoops</title>
 
 <style>
 
@@ -76,7 +76,48 @@ nav a:hover {
   text-align: center;
   color: #999;
   font-size: 17px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+/* MONTH BUTTONS */
+
+.month-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.month-button {
+  background: #151515;
+  color: white;
+  border: 1px solid #333;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.month-button:hover {
+  border-color: #ff6a00;
+}
+
+.month-button.active {
+  background: #ff6a00;
+  border-color: #ff6a00;
+  color: white;
+}
+
+/* MONTH TITLE */
+
+.month-title {
+  text-align: center;
+  color: #ff6a00;
+  font-size: 26px;
+  margin-bottom: 25px;
 }
 
 /* WATCHLIST */
@@ -197,9 +238,223 @@ DMV<span>Exposure</span>Hoops
 </h1>
 
 <p class="subtitle">
-October 2026 • DMVExposureHoops
+DMVExposureHoops Monthly Watchlist
 </p>
 
+
+<!-- MONTH BUTTONS -->
+
+<div class="month-buttons">
+
+<button
+class="month-button active"
+id="septemberButton"
+onclick="showMonth('september')">
+
+September 2026
+
+</button>
+
+<button
+class="month-button"
+id="octoberButton"
+onclick="showMonth('october')">
+
+October 2026
+
+</button>
+
+</div>
+
+
+<!-- =========================
+     SEPTEMBER 2026
+========================= -->
+
+<div id="september">
+
+<h2 class="month-title">
+September 2026
+</h2>
+
+<div class="watchlist">
+
+
+<div class="player">
+<div class="rank">01</div>
+<div class="player-info">
+<div class="player-name">Noah Vasquez</div>
+<div class="player-height">5'11"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">02</div>
+<div class="player-info">
+<div class="player-name">Julian Soto</div>
+<div class="player-height">5'7"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">03</div>
+<div class="player-info">
+<div class="player-name">Kalvin Byrd</div>
+<div class="player-height">6'0"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">04</div>
+<div class="player-info">
+<div class="player-name">Heath Collins</div>
+<div class="player-height">6'4"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">05</div>
+<div class="player-info">
+<div class="player-name">Kaleb Schrader</div>
+<div class="player-height">5'7"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">06</div>
+<div class="player-info">
+<div class="player-name">Mason Wilcox</div>
+<div class="player-height">5'8"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">07</div>
+<div class="player-info">
+<div class="player-name">Zyqoun Roberts</div>
+<div class="player-height">6'2"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">08</div>
+<div class="player-info">
+<div class="player-name">Jacob Rainey</div>
+<div class="player-height">6'3"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">09</div>
+<div class="player-info">
+<div class="player-name">Jeremiah Harris</div>
+<div class="player-height">6'5"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">10</div>
+<div class="player-info">
+<div class="player-name">Joseph McGill</div>
+<div class="player-height">5'11"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">11</div>
+<div class="player-info">
+<div class="player-name">Truett Crosby</div>
+<div class="player-height">5'7"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">12</div>
+<div class="player-info">
+<div class="player-name">Jace Nunley</div>
+<div class="player-height">5'6"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">13</div>
+<div class="player-info">
+<div class="player-name">Tyler Adams</div>
+<div class="player-height">6'1"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">14</div>
+<div class="player-info">
+<div class="player-name">Cameron Moore</div>
+<div class="player-height">5'10"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">15</div>
+<div class="player-info">
+<div class="player-name">Michael Ealey Jr</div>
+<div class="player-height">5'9"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">16</div>
+<div class="player-info">
+<div class="player-name">Johann Rodriguez</div>
+<div class="player-height">5'6"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">17</div>
+<div class="player-info">
+<div class="player-name">Ayden Burress</div>
+<div class="player-height">5'10"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">18</div>
+<div class="player-info">
+<div class="player-name">Mansoor Mohammed</div>
+<div class="player-height">5'7"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">19</div>
+<div class="player-info">
+<div class="player-name">Bryce Ureña</div>
+<div class="player-height">6'0"</div>
+</div>
+</div>
+
+<div class="player">
+<div class="rank">20</div>
+<div class="player-info">
+<div class="player-name">Johnny Merlo</div>
+<div class="player-height">6'3"</div>
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     OCTOBER 2026
+========================= -->
+
+<div id="october" style="display: none;">
+
+<h2 class="month-title">
+October 2026
+</h2>
 
 <div class="watchlist">
 
@@ -212,7 +467,6 @@ October 2026 • DMVExposureHoops
 </div>
 </div>
 
-
 <div class="player">
 <div class="rank">02</div>
 <div class="player-info">
@@ -220,7 +474,6 @@ October 2026 • DMVExposureHoops
 <div class="player-height">6'2"</div>
 </div>
 </div>
-
 
 <div class="player">
 <div class="rank">03</div>
@@ -230,7 +483,6 @@ October 2026 • DMVExposureHoops
 </div>
 </div>
 
-
 <div class="player">
 <div class="rank">04</div>
 <div class="player-info">
@@ -238,7 +490,6 @@ October 2026 • DMVExposureHoops
 <div class="player-height">5'6"</div>
 </div>
 </div>
-
 
 <div class="player">
 <div class="rank">05</div>
@@ -248,7 +499,6 @@ October 2026 • DMVExposureHoops
 </div>
 </div>
 
-
 <div class="player">
 <div class="rank">06</div>
 <div class="player-info">
@@ -256,7 +506,6 @@ October 2026 • DMVExposureHoops
 <div class="player-height">5'6"</div>
 </div>
 </div>
-
 
 <div class="player">
 <div class="rank">07</div>
@@ -266,7 +515,6 @@ October 2026 • DMVExposureHoops
 </div>
 </div>
 
-
 <div class="player">
 <div class="rank">08</div>
 <div class="player-info">
@@ -274,7 +522,6 @@ October 2026 • DMVExposureHoops
 <div class="player-height">5'10"</div>
 </div>
 </div>
-
 
 <div class="player">
 <div class="rank">09</div>
@@ -284,7 +531,6 @@ October 2026 • DMVExposureHoops
 </div>
 </div>
 
-
 <div class="player">
 <div class="rank">10</div>
 <div class="player-info">
@@ -292,7 +538,6 @@ October 2026 • DMVExposureHoops
 <div class="player-height">5'8"</div>
 </div>
 </div>
-
 
 <div class="player">
 <div class="rank">11</div>
@@ -302,7 +547,6 @@ October 2026 • DMVExposureHoops
 </div>
 </div>
 
-
 <div class="player">
 <div class="rank">12</div>
 <div class="player-info">
@@ -310,7 +554,6 @@ October 2026 • DMVExposureHoops
 <div class="player-height">6'5"</div>
 </div>
 </div>
-
 
 <div class="player">
 <div class="rank">13</div>
@@ -320,7 +563,6 @@ October 2026 • DMVExposureHoops
 </div>
 </div>
 
-
 <div class="player">
 <div class="rank">14</div>
 <div class="player-info">
@@ -328,7 +570,6 @@ October 2026 • DMVExposureHoops
 <div class="player-height">5'9"</div>
 </div>
 </div>
-
 
 <div class="player">
 <div class="rank">15</div>
@@ -338,7 +579,6 @@ October 2026 • DMVExposureHoops
 </div>
 </div>
 
-
 <div class="player">
 <div class="rank">16</div>
 <div class="player-info">
@@ -346,7 +586,6 @@ October 2026 • DMVExposureHoops
 <div class="player-height">5'7"</div>
 </div>
 </div>
-
 
 <div class="player">
 <div class="rank">17</div>
@@ -356,7 +595,6 @@ October 2026 • DMVExposureHoops
 </div>
 </div>
 
-
 <div class="player">
 <div class="rank">18</div>
 <div class="player-info">
@@ -365,7 +603,6 @@ October 2026 • DMVExposureHoops
 </div>
 </div>
 
-
 <div class="player">
 <div class="rank">19</div>
 <div class="player-info">
@@ -373,7 +610,6 @@ October 2026 • DMVExposureHoops
 <div class="player-height">5'5"</div>
 </div>
 </div>
-
 
 <div class="player">
 <div class="rank">20</div>
@@ -386,6 +622,8 @@ October 2026 • DMVExposureHoops
 
 </div>
 
+</div>
+
 </main>
 
 
@@ -395,10 +633,52 @@ October 2026 • DMVExposureHoops
 
 <br><br>
 
-2029 October Watchlist • DMV Basketball Exposure
+2029 Watchlist • September & October 2026
 
 </footer>
 
+
+<script>
+
+function showMonth(month) {
+
+  const september =
+    document.getElementById("september");
+
+  const october =
+    document.getElementById("october");
+
+  const septemberButton =
+    document.getElementById("septemberButton");
+
+  const octoberButton =
+    document.getElementById("octoberButton");
+
+
+  if (month === "september") {
+
+    september.style.display = "block";
+    october.style.display = "none";
+
+    septemberButton.classList.add("active");
+    octoberButton.classList.remove("active");
+
+  }
+
+
+  if (month === "october") {
+
+    september.style.display = "none";
+    october.style.display = "block";
+
+    septemberButton.classList.remove("active");
+    octoberButton.classList.add("active");
+
+  }
+
+}
+
+</script>
 
 </body>
 </html>
