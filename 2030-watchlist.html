@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2030 Watchlist | DMVExposureHoops</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#080808;color:#fff}
+header{background:#111;border-bottom:2px solid #ff6a00;padding:20px;text-align:center}
+.logo{font-size:28px;font-weight:bold}.logo span{color:#ff6a00}
+nav{margin-top:15px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+nav a{color:#fff;text-decoration:none;font-size:14px;padding:6px}
+nav a:hover{color:#ff6a00}
+.container{max-width:1100px;margin:auto;padding:35px 20px}
+h1{text-align:center;color:#ff6a00;font-size:36px}
+.subtitle{text-align:center;color:#aaa}
+.controls{text-align:center;margin:25px 0}
+select{background:#151515;color:#fff;border:1px solid #ff6a00;padding:12px 18px;border-radius:7px;font-size:16px}
+.search{width:100%;padding:14px;background:#151515;border:1px solid #333;border-radius:7px;color:#fff;font-size:16px;margin-bottom:20px}
+.players{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px}
+.player{background:#121212;border:1px solid #292929;border-left:4px solid #ff6a00;border-radius:7px;padding:18px}
+.player h3{margin:0 0 8px}
+.height{color:#aaa}
+footer{text-align:center;padding:35px;color:#666}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">DMV<span>Exposure</span>Hoops</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="Articles.js">Articles</a>
+<a href="Players.js">Player Profiles</a>
+<a href="2027-rankings.html">2027 Rankings</a>
+<a href="2028-rankings.html">2028 Rankings</a>
+<a href="2029-rankings.html">2029 Rankings</a>
+<a href="2030-rankings.html">2030 Rankings</a>
+<a href="2028-watchlist.html">2028 Watchlist</a>
+<a href="2029-watchlist.html">2029 Watchlist</a>
+<a href="2030-watchlist.html">2030 Watchlist</a>
+<a href="2031-watchlist.html">2031 Watchlist</a>
+</nav>
+</header>
+
+<div class="container">
+
+<h1>2030 Watchlist</h1>
+
+<p class="subtitle">
+Monthly DMVExposureHoops watchlist for the Class of 2030
+</p>
+
+<div class="controls">
+
+<select id="month" onchange="displayPlayers()">
+<option value="september">September 2026</option>
+</select>
+
+</div>
+
+<input
+id="search"
+class="search"
+placeholder="Search players..."
+onkeyup="displayPlayers()"
+>
+
+<div id="players" class="players"></div>
+
+</div>
+
+<footer>© 2026 DMVExposureHoops</footer>
+
+<script>
+
+const watchlists={
+
+september:[
+
+["Jacob Torres","5'10"],
+["Tamir Orr","6'1"],
+["Liam Gonzalez","5'11"],
+["Henry Merritt","5'8"],
+["Mason Gonzalez","5'7"],
+["DJ Spears","5'9"],
+["Ishamell McCany","6'0"],
+["Kayleb Wilson","6'3"],
+["Amare Rodriguez","6'1"],
+["Ricky Anderson","5'11"],
+["Peyton Scott","5'9"],
+["Dandrea Freeman","5'9"],
+["Andreas Miranda","6'3"],
+["Marquise Joseph","5'8"],
+["Robert Walker","6'1"],
+["CJ Ansari","5'9"],
+["Christopher Bou","6'0"],
+["Edwin Morales Chan","5'9"],
+["Dylan Hall","6'0"],
+["Allen Adeoye","5'10"]
+
+]
+
+};
+
+function displayPlayers(){
+
+const month=document.getElementById("month").value;
+const search=document.getElementById("search").value.toLowerCase();
+
+const container=document.getElementById("players");
+
+container.innerHTML="";
+
+watchlists[month]
+.filter(player=>player[0].toLowerCase().includes(search))
+.forEach((player,index)=>{
+
+container.innerHTML+=`
+<div class="player">
+<h3>${index+1}. ${player[0]}</h3>
+<div class="height">Height: ${player[1]}</div>
+</div>
+`;
+
+});
+
+}
+
+displayPlayers();
+
+</script>
+
+</body>
+</html>
