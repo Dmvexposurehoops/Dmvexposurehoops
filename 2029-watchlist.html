@@ -1,167 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2029 Watchlist | DMVExposureHoops</title>
+
+<title>2029 October Watchlist | DMVExposureHoops</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#080808;color:#fff}
-header{background:#111;border-bottom:2px solid #ff6a00;padding:20px;text-align:center}
-.logo{font-size:28px;font-weight:bold}.logo span{color:#ff6a00}
-nav{margin-top:15px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-nav a{color:#fff;text-decoration:none;font-size:14px;padding:6px}
-nav a:hover{color:#ff6a00}
-.container{max-width:1100px;margin:auto;padding:35px 20px}
-h1{text-align:center;color:#ff6a00;font-size:36px}
-.subtitle{text-align:center;color:#aaa}
-.controls{text-align:center;margin:25px 0}
-select{background:#151515;color:#fff;border:1px solid #ff6a00;padding:12px 18px;border-radius:7px;font-size:16px}
-.search{width:100%;padding:14px;background:#151515;border:1px solid #333;border-radius:7px;color:#fff;font-size:16px;margin-bottom:20px}
-.players{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px}
-.player{background:#121212;border:1px solid #292929;border-left:4px solid #ff6a00;border-radius:7px;padding:18px}
-.player h3{margin:0 0 8px}
-.height{color:#aaa}
-footer{text-align:center;padding:35px;color:#666}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #080808;
+  color: white;
+}
+
+/* HEADER */
+
+header {
+  background: #101010;
+  border-bottom: 2px solid #ff6a00;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ff6a00;
+}
+
+nav {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  background: #ff6a00;
+}
+
+/* MAIN */
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #999;
+  font-size: 17px;
+  margin-bottom: 40px;
+}
+
+/* WATCHLIST */
+
+.watchlist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.player {
+  background: #121212;
+  border: 1px solid #292929;
+  border-left: 4px solid #ff6a00;
+  border-radius: 8px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.player:hover {
+  transform: translateY(-3px);
+  border-color: #ff6a00;
+}
+
+.rank {
+  font-size: 21px;
+  font-weight: bold;
+  color: #ff6a00;
+  width: 45px;
+}
+
+.player-info {
+  flex: 1;
+}
+
+.player-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.player-height {
+  color: #999;
+  font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  color: #666;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+  .watchlist {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 34px;
+  }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
+
 <header>
-<div class="logo">DMV<span>Exposure</span>Hoops</div>
+
+<div class="logo">
+DMV<span>Exposure</span>Hoops
+</div>
 
 <nav>
+
 <a href="index.html">Home</a>
-<a href="Articles.js">Articles</a>
-<a href="Players.js">Player Profiles</a>
+
+<a href="articles.html">Articles</a>
+
+<a href="players.html">Player Profiles</a>
+
 <a href="2027-rankings.html">2027 Rankings</a>
+
 <a href="2028-rankings.html">2028 Rankings</a>
+
 <a href="2029-rankings.html">2029 Rankings</a>
+
 <a href="2030-rankings.html">2030 Rankings</a>
+
 <a href="2028-watchlist.html">2028 Watchlist</a>
+
 <a href="2029-watchlist.html">2029 Watchlist</a>
+
 <a href="2030-watchlist.html">2030 Watchlist</a>
+
 <a href="2031-watchlist.html">2031 Watchlist</a>
+
 </nav>
+
 </header>
 
-<div class="container">
 
-<h1>2029 Watchlist</h1>
+<main class="container">
+
+<h1 class="page-title">
+2029 Watchlist
+</h1>
 
 <p class="subtitle">
-Monthly DMVExposureHoops watchlist for the Class of 2029
+October 2026 • DMVExposureHoops
 </p>
 
-<div class="controls">
 
-<select id="month" onchange="displayPlayers()">
+<div class="watchlist">
 
-<option value="september">September 2026</option>
-<option value="october">October 2026</option>
 
-</select>
-
-</div>
-
-<input
-id="search"
-class="search"
-placeholder="Search players..."
-onkeyup="displayPlayers()"
->
-
-<div id="players" class="players"></div>
-
-</div>
-
-<footer>© 2026 DMVExposureHoops</footer>
-
-<script>
-
-const watchlists={
-
-september:[
-
-["Noah Vasquez","5'11"],
-["Julian Soto","5'7"],
-["Kalvin Byrd","6'0"],
-["Heath Collins","6'4"],
-["Kaleb Schrader","5'7"],
-["Mason Wilcox","5'8"],
-["Zyqoun Roberts","6'2"],
-["Jacob Rainey","6'3"],
-["Jeremiah Harris","6'5"],
-["Joseph McGill","5'11"],
-["Truett Crosby","5'7"],
-["Jace Nunley","5'6"],
-["Tyler Adams","6'1"],
-["Cameron Moore","5'10"],
-["Michael Ealey Jr","5'9"],
-["Johann Rodriguez","5'6"],
-["Ayden Burress","5'10"],
-["Mansoor Mohammed","5'7"],
-["Bryce Ureña","6'0"],
-["Johnny Merlo","6'3"]
-
-],
-
-october:[
-
-["Braylon Samples","5'10"],
-["Luka Prostran","6'2"],
-["Jy’terious Hoytt","5'11"],
-["Roddy Barnes","5'6"],
-["Kaleb Schrader","5'7"],
-["Malik Walker","5'6"],
-["Dylan Jacobs","5'10"],
-["Emilio Cruz","5'10"],
-["Joseph McGill","5'11"],
-["Lucas Krok","5'8"],
-["Johann Rodriguez","5'6"],
-["Tristain Morgan","6'5"],
-["Pedro Mena","5'10"],
-["Amir Hill","5'9"],
-["Brian Kaminski","6'4"],
-["Jordan Russell","5'7"],
-["Noah Vasquez","5'11"],
-["Mark Martin","5'10"],
-["Mason Gregory","5'5"],
-["Djibryl Sangare","5'7"]
-
-]
-
-};
-
-function displayPlayers(){
-
-const month=document.getElementById("month").value;
-const search=document.getElementById("search").value.toLowerCase();
-
-const container=document.getElementById("players");
-
-container.innerHTML="";
-
-watchlists[month]
-.filter(player=>player[0].toLowerCase().includes(search))
-.forEach((player,index)=>{
-
-container.innerHTML+=`
 <div class="player">
-<h3>${index+1}. ${player[0]}</h3>
-<div class="height">Height: ${player[1]}</div>
+<div class="rank">01</div>
+<div class="player-info">
+<div class="player-name">Braylon Samples</div>
+<div class="player-height">5'10"</div>
 </div>
-`;
+</div>
 
-});
 
-}
+<div class="player">
+<div class="rank">02</div>
+<div class="player-info">
+<div class="player-name">Luka Prostran</div>
+<div class="player-height">6'2"</div>
+</div>
+</div>
 
-displayPlayers();
 
-</script>
+<div class="player">
+<div class="rank">03</div>
+<div class="player-info">
+<div class="player-name">Jy’terious Hoytt</div>
+<div class="player-height">5'11"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">04</div>
+<div class="player-info">
+<div class="player-name">Roddy Barnes</div>
+<div class="player-height">5'6"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">05</div>
+<div class="player-info">
+<div class="player-name">Kaleb Schrader</div>
+<div class="player-height">5'7"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">06</div>
+<div class="player-info">
+<div class="player-name">Malik Walker</div>
+<div class="player-height">5'6"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">07</div>
+<div class="player-info">
+<div class="player-name">Dylan Jacobs</div>
+<div class="player-height">5'10"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">08</div>
+<div class="player-info">
+<div class="player-name">Emilio Cruz</div>
+<div class="player-height">5'10"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">09</div>
+<div class="player-info">
+<div class="player-name">Joseph McGill</div>
+<div class="player-height">5'11"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">10</div>
+<div class="player-info">
+<div class="player-name">Lucas Krok</div>
+<div class="player-height">5'8"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">11</div>
+<div class="player-info">
+<div class="player-name">Johann Rodriguez</div>
+<div class="player-height">5'6"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">12</div>
+<div class="player-info">
+<div class="player-name">Tristain Morgan</div>
+<div class="player-height">6'5"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">13</div>
+<div class="player-info">
+<div class="player-name">Pedro Mena</div>
+<div class="player-height">5'10"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">14</div>
+<div class="player-info">
+<div class="player-name">Amir Hill</div>
+<div class="player-height">5'9"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">15</div>
+<div class="player-info">
+<div class="player-name">Brian Kaminski</div>
+<div class="player-height">6'4"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">16</div>
+<div class="player-info">
+<div class="player-name">Jordan Russell</div>
+<div class="player-height">5'7"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">17</div>
+<div class="player-info">
+<div class="player-name">Noah Vasquez</div>
+<div class="player-height">5'11"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">18</div>
+<div class="player-info">
+<div class="player-name">Mark Martin</div>
+<div class="player-height">5'10"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">19</div>
+<div class="player-info">
+<div class="player-name">Mason Gregory</div>
+<div class="player-height">5'5"</div>
+</div>
+</div>
+
+
+<div class="player">
+<div class="rank">20</div>
+<div class="player-info">
+<div class="player-name">Djibryl Sangare</div>
+<div class="player-height">5'7"</div>
+</div>
+</div>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+© 2026 DMVExposureHoops
+
+<br><br>
+
+2029 October Watchlist • DMV Basketball Exposure
+
+</footer>
+
 
 </body>
 </html>
