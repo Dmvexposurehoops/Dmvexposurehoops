@@ -3,243 +3,410 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Player Profiles | DMVExposureHoops</title>
-
 <style>
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #080808;
   color: white;
 }
-
+/* HEADER */
 header {
   background: #101010;
   border-bottom: 2px solid #ff6a00;
   padding: 20px;
   text-align: center;
 }
-
 .logo {
   font-size: 30px;
   font-weight: bold;
 }
-
 .logo span {
   color: #ff6a00;
 }
-
 nav {
   margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
 }
-
 nav a {
   color: white;
   text-decoration: none;
   font-size: 14px;
-  padding: 7px 10px;
+  padding: 8px 10px;
+  border-radius: 5px;
 }
-
 nav a:hover {
-  color: #ff6a00;
+  background: #ff6a00;
 }
-
+/* MAIN */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 50px 20px;
 }
-
 h1 {
   text-align: center;
-  font-size: 40px;
+  font-size: 42px;
+  margin-bottom: 10px;
 }
-
 .subtitle {
   text-align: center;
   color: #999;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
-
+/* SEARCH */
+.search-container {
+  max-width: 650px;
+  margin: 0 auto 40px;
+}
+.search-container input {
+  width: 100%;
+  padding: 16px 18px;
+  background: #151515;
+  border: 1px solid #333;
+  border-radius: 7px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+.search-container input:focus {
+  border-color: #ff6a00;
+}
+.search-container input::placeholder {
+  color: #777;
+}
+/* PLAYER GRID */
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+/* PLAYER CARD */
 .player-card {
   background: #121212;
   border: 1px solid #292929;
   border-top: 4px solid #ff6a00;
-  border-radius: 10px;
-  padding: 30px;
-  margin-bottom: 25px;
+  border-radius: 9px;
+  padding: 24px;
+  cursor: pointer;
+  transition: .2s;
 }
-
+.player-card:hover {
+  transform: translateY(-4px);
+  border-color: #ff6a00;
+}
 .player-card h2 {
-  margin-top: 0;
+  margin: 0 0 12px;
   color: #ff6a00;
+  font-size: 22px;
 }
-
-.info {
+.player-card p {
+  margin: 7px 0;
+  color: #aaa;
+}
+.player-card strong {
+  color: white;
+}
+/* NO RESULTS */
+.no-results {
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+  display: none;
+  padding: 30px;
+}
+/* FULL PROFILE */
+.profile-view {
+  display: none;
+  max-width: 850px;
+  margin: auto;
+}
+.back-button {
+  display: inline-block;
+  margin-bottom: 25px;
+  padding: 11px 18px;
+  border: 1px solid #ff6a00;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.back-button:hover {
+  background: #ff6a00;
+}
+.profile-card {
+  background: #121212;
+  border: 1px solid #292929;
+  border-top: 5px solid #ff6a00;
+  border-radius: 10px;
+  padding: 35px;
+}
+.profile-card h2 {
+  color: #ff6a00;
+  font-size: 34px;
+  margin-top: 0;
+}
+.profile-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 12px;
-  margin: 20px 0;
+  margin: 25px 0;
 }
-
-.info div {
+.profile-info div {
   background: #1b1b1b;
-  padding: 12px;
+  padding: 15px;
   border-radius: 6px;
 }
-
 .label {
-  color: #888;
-  font-size: 12px;
   display: block;
-  margin-bottom: 4px;
+  color: #777;
+  font-size: 12px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
 }
-
-.bio {
+.profile-bio {
   color: #ccc;
-  line-height: 1.7;
+  line-height: 1.8;
   white-space: pre-line;
 }
-
-.highlight {
+.highlight-button {
   display: inline-block;
-  margin-top: 15px;
-  padding: 12px 18px;
+  margin-top: 25px;
+  padding: 13px 20px;
   background: #ff6a00;
   color: white;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
 }
-
+.highlight-button:hover {
+  background: #e65f00;
+}
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 35px 20px;
   color: #666;
+  font-size: 14px;
+}
+/* MOBILE */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 34px;
+  }
+  .profile-card {
+    padding: 25px;
+  }
+  .profile-card h2 {
+    font-size: 28px;
+  }
 }
 </style>
 </head>
-
 <body>
-
+<!-- HEADER -->
 <header>
-
 <div class="logo">
 DMV<span>Exposure</span>Hoops
 </div>
-
 <nav>
 <a href="index.html">Home</a>
 <a href="articles.html">Articles</a>
 <a href="players.html">Player Profiles</a>
-
 <a href="2027-rankings.html">2027 Rankings</a>
 <a href="2028-rankings.html">2028 Rankings</a>
 <a href="2029-rankings.html">2029 Rankings</a>
 <a href="2030-rankings.html">2030 Rankings</a>
-
 <a href="2028-watchlist.html">2028 Watchlist</a>
 <a href="2029-watchlist.html">2029 Watchlist</a>
 <a href="2030-watchlist.html">2030 Watchlist</a>
 <a href="2031-watchlist.html">2031 Watchlist</a>
 </nav>
-
 </header>
-
-<div class="container">
-
+<!-- PLAYER LIST -->
+<div class="container" id="playerListPage">
 <h1>Player Profiles</h1>
-
 <p class="subtitle">
-DMVExposureHoops player profiles
+Search DMVExposureHoops player profiles
 </p>
-
-<div id="players-container"></div>
-
+<div class="search-container">
+<input
+  type="text"
+  id="searchInput"
+  placeholder="Search player name..."
+  autocomplete="off"
+>
 </div>
-
+<div class="player-grid" id="playerGrid"></div>
+<div class="no-results" id="noResults">
+No players found.
+</div>
+</div>
+<!-- FULL PROFILE -->
+<div class="container profile-view" id="profilePage">
+<a class="back-button" onclick="showPlayerList()">
+← Back to Player Profiles
+</a>
+<div class="profile-card" id="profileContent"></div>
+</div>
+<!-- FOOTER -->
 <footer>
 © 2026 DMVExposureHoops
+<br><br>
+DMV Basketball Exposure • Watchlists • Rankings • Profiles • Articles
 </footer>
-
+<!-- LOAD PLAYER DATA -->
 <script src="Players.js"></script>
-
 <script>
-
-const container = document.getElementById("players-container");
-
-players.forEach(player => {
-
-  const card = document.createElement("div");
-
-  card.className = "player-card";
-
-  card.innerHTML = `
-
+/*
+========================================
+PLAYER PROFILE SYSTEM
+========================================
+*/
+const playerGrid = document.getElementById("playerGrid");
+const searchInput = document.getElementById("searchInput");
+const noResults = document.getElementById("noResults");
+const playerListPage = document.getElementById("playerListPage");
+const profilePage = document.getElementById("profilePage");
+const profileContent = document.getElementById("profileContent");
+/*
+========================================
+DISPLAY PLAYERS
+========================================
+*/
+function displayPlayers(list) {
+  playerGrid.innerHTML = "";
+  if (list.length === 0) {
+    noResults.style.display = "block";
+    return;
+  }
+  noResults.style.display = "none";
+  list.forEach((player, index) => {
+    const card = document.createElement("div");
+    card.className = "player-card";
+    card.onclick = function() {
+      openProfile(index, list);
+    };
+    card.innerHTML = `
+      <h2>${player.name}</h2>
+      <p>
+        <strong>Class:</strong>
+        ${player.classYear}
+      </p>
+      <p>
+        <strong>Height:</strong>
+        ${player.height}
+      </p>
+      <p>
+        <strong>Position:</strong>
+        ${player.position}
+      </p>
+      <p>
+        <strong>School:</strong>
+        ${player.school}
+      </p>
+    `;
+    playerGrid.appendChild(card);
+  });
+}
+/*
+========================================
+SEARCH BY NAME ONLY
+========================================
+*/
+searchInput.addEventListener("input", function() {
+  const searchTerm = searchInput.value
+    .toLowerCase()
+    .trim();
+  const filteredPlayers = players.filter(player =>
+    player.name
+      .toLowerCase()
+      .includes(searchTerm)
+  );
+  displayPlayers(filteredPlayers);
+});
+/*
+========================================
+OPEN FULL PROFILE
+========================================
+*/
+function openProfile(index, list) {
+  const player = list[index];
+  playerListPage.style.display = "none";
+  profilePage.style.display = "block";
+  profileContent.innerHTML = `
     <h2>${player.name}</h2>
-
-    <div class="info">
-
+    <div class="profile-info">
       <div>
         <span class="label">Class</span>
         ${player.classYear}
       </div>
-
       <div>
         <span class="label">Height</span>
         ${player.height}
       </div>
-
       <div>
         <span class="label">Weight</span>
         ${player.weight}
       </div>
-
       <div>
         <span class="label">Position</span>
         ${player.position}
       </div>
-
       <div>
         <span class="label">School</span>
         ${player.school}
       </div>
-
       <div>
         <span class="label">AAU Team</span>
         ${player.aauTeam}
       </div>
-
     </div>
-
-    <div class="bio">
+    <h3>Player Bio</h3>
+    <div class="profile-bio">
       ${player.bio}
     </div>
-
     ${
       player.highlightLink
-      ? `<a class="highlight" href="${player.highlightLink}" target="_blank">
-          View Highlights
-        </a>`
-      : ""
+      ?
+      `
+      <a
+        class="highlight-button"
+        href="${player.highlightLink}"
+        target="_blank"
+      >
+        View Highlights
+      </a>
+      `
+      :
+      ""
     }
-
   `;
-
-  container.appendChild(card);
-
-});
-
+  window.scrollTo(0, 0);
+}
+/*
+========================================
+BACK TO PLAYER LIST
+========================================
+*/
+function showPlayerList() {
+  profilePage.style.display = "none";
+  playerListPage.style.display = "block";
+  window.scrollTo(0, 0);
+}
+/*
+========================================
+INITIAL LOAD
+========================================
+*/
+displayPlayers(players);
 </script>
-
 </body>
 </html>
