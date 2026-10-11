@@ -42,33 +42,35 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-size: 14px;
-  padding: 7px 10px;
+  padding: 8px 10px;
+  border-radius: 5px;
 }
 
 nav a:hover {
-  color: #ff6a00;
+  background: #ff6a00;
+  color: white;
 }
 
 /* HERO */
 
 .hero {
   text-align: center;
-  padding: 70px 20px;
+  padding: 85px 20px;
   background:
-    linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.95)),
-    radial-gradient(circle at center, #38200d, #080808 65%);
+    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.96)),
+    radial-gradient(circle at center, #42230c, #080808 70%);
 }
 
 .hero h1 {
-  font-size: 48px;
-  margin-bottom: 15px;
+  font-size: 52px;
+  margin: 0 0 18px;
 }
 
 .hero h1 span {
@@ -76,20 +78,20 @@ nav a:hover {
 }
 
 .hero p {
-  max-width: 700px;
+  max-width: 720px;
   margin: auto;
   color: #bbb;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .hero-buttons {
-  margin-top: 30px;
+  margin-top: 32px;
 }
 
 .button {
   display: inline-block;
-  padding: 14px 22px;
+  padding: 14px 24px;
   margin: 6px;
   border-radius: 6px;
   text-decoration: none;
@@ -106,40 +108,48 @@ nav a:hover {
   color: white;
 }
 
-/* CONTAINER */
+.primary:hover {
+  background: #e65f00;
+}
+
+.secondary:hover {
+  background: #ff6a00;
+}
+
+/* MAIN */
 
 .container {
   max-width: 1150px;
   margin: auto;
-  padding: 50px 20px;
+  padding: 55px 20px;
 }
 
 .section-title {
   text-align: center;
-  font-size: 30px;
+  font-size: 32px;
   margin-bottom: 10px;
 }
 
 .section-subtitle {
   text-align: center;
   color: #999;
-  margin-bottom: 35px;
+  margin-bottom: 38px;
 }
 
 /* CARDS */
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
 }
 
 .card {
   background: #121212;
   border: 1px solid #292929;
   border-top: 4px solid #ff6a00;
-  border-radius: 8px;
-  padding: 25px;
+  border-radius: 9px;
+  padding: 26px;
   transition: .2s;
 }
 
@@ -155,25 +165,25 @@ nav a:hover {
 
 .card p {
   color: #aaa;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .card a {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 9px;
   color: #ff6a00;
   text-decoration: none;
   font-weight: bold;
 }
 
-/* WHAT WE DO */
-
-.features {
-  margin-top: 60px;
+.card a:hover {
+  color: white;
 }
 
-.feature {
-  text-align: center;
+/* FEATURE SECTION */
+
+.features {
+  margin-top: 70px;
 }
 
 /* CTA */
@@ -183,33 +193,58 @@ nav a:hover {
   background: #111;
   border-top: 1px solid #292929;
   border-bottom: 1px solid #292929;
-  padding: 55px 20px;
+  padding: 60px 20px;
 }
 
 .cta h2 {
-  font-size: 30px;
+  font-size: 32px;
 }
 
 .cta p {
   color: #aaa;
-  max-width: 650px;
+  max-width: 700px;
   margin: auto;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* FOOTER */
 
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 35px 20px;
   color: #666;
   font-size: 14px;
+  line-height: 1.7;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  nav {
+    gap: 5px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header>
 
@@ -221,9 +256,9 @@ DMV<span>Exposure</span>Hoops
 
 <a href="index.html">Home</a>
 
-<a href="Articles.js">Articles</a>
+<a href="articles.html">Articles</a>
 
-<a href="Players.js">Player Profiles</a>
+<a href="players.html">Player Profiles</a>
 
 <a href="2027-rankings.html">2027 Rankings</a>
 
@@ -246,6 +281,8 @@ DMV<span>Exposure</span>Hoops
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
 <h1>
@@ -253,8 +290,8 @@ DMV<span>Exposure</span>Hoops
 </h1>
 
 <p>
-Your source for DMV basketball exposure, player watchlists,
-rankings, player profiles, articles and more.
+Your source for DMV basketball exposure, rankings,
+watchlists, player profiles, articles and more.
 </p>
 
 <div class="hero-buttons">
@@ -263,7 +300,7 @@ rankings, player profiles, articles and more.
 View Watchlists
 </a>
 
-<a class="button secondary" href="2027-rankings.html">
+<a class="button secondary" href="2029-rankings.html">
 View Rankings
 </a>
 
@@ -272,6 +309,8 @@ View Rankings
 </section>
 
 
+<!-- MAIN CONTENT -->
+
 <div class="container">
 
 <h2 class="section-title">
@@ -279,18 +318,22 @@ What DMVExposureHoops Does
 </h2>
 
 <p class="section-subtitle">
-Helping DMV basketball players get their names out there.
+Exposure. Information. Opportunity.
 </p>
 
 
 <div class="grid">
 
+
+<!-- WATCHLISTS -->
+
 <div class="card">
+
 <h3>🏀 Player Watchlists</h3>
 
 <p>
-Monthly watchlists featuring players from the
-2028, 2029, 2030 and 2031 classes.
+Monthly DMV basketball watchlists featuring
+players from the classes of 2028–2031.
 </p>
 
 <a href="2028-watchlist.html">
@@ -318,12 +361,15 @@ Monthly watchlists featuring players from the
 </div>
 
 
+<!-- RANKINGS -->
+
 <div class="card">
+
 <h3>🏆 DMV Rankings</h3>
 
 <p>
-Our DMV-area rankings for the classes of
-2027 through 2030.
+Follow our DMV-area basketball rankings for
+the classes of 2027–2030.
 </p>
 
 <a href="2027-rankings.html">
@@ -351,30 +397,37 @@ Our DMV-area rankings for the classes of
 </div>
 
 
+<!-- PLAYER PROFILES -->
+
 <div class="card">
+
 <h3>👤 Player Profiles</h3>
 
 <p>
-Player profiles featuring information about
-players, schools, positions, measurements and more.
+Learn more about DMV basketball players through
+profiles featuring their measurements, school,
+position, AAU team and player information.
 </p>
 
-<a href="Players.js">
+<a href="players.html">
 View Player Profiles →
 </a>
 
 </div>
 
 
+<!-- ARTICLES -->
+
 <div class="card">
+
 <h3>📰 Articles</h3>
 
 <p>
-Basketball articles, updates, features and
-other DMV basketball content.
+Read DMV basketball articles, player features,
+updates and other basketball coverage.
 </p>
 
-<a href="Articles.js">
+<a href="articles.html">
 Read Articles →
 </a>
 
@@ -383,6 +436,8 @@ Read Articles →
 </div>
 
 
+<!-- FEATURES -->
+
 <section class="features">
 
 <h2 class="section-title">
@@ -390,37 +445,38 @@ Built For DMV Basketball
 </h2>
 
 <p class="section-subtitle">
-Exposure. Information. Opportunity.
+Helping players get their names out there.
 </p>
 
 
 <div class="grid">
 
-<div class="card feature">
+
+<div class="card">
 
 <h3>Exposure</h3>
 
 <p>
-Get your name, game and accomplishments
-in front of more basketball fans and coaches.
+DMVExposureHoops helps bring attention to
+players and their basketball accomplishments.
 </p>
 
 </div>
 
 
-<div class="card feature">
+<div class="card">
 
 <h3>Watchlists</h3>
 
 <p>
-Follow players throughout the season with
+Follow players throughout the year with
 monthly class watchlists.
 </p>
 
 </div>
 
 
-<div class="card feature">
+<div class="card">
 
 <h3>Rankings</h3>
 
@@ -432,13 +488,13 @@ graduating classes.
 </div>
 
 
-<div class="card feature">
+<div class="card">
 
 <h3>Player Profiles</h3>
 
 <p>
-Learn more about players and keep track of
-the next generation of DMV talent.
+Get information about players and keep track
+of the next generation of DMV basketball talent.
 </p>
 
 </div>
@@ -449,6 +505,8 @@ the next generation of DMV talent.
 
 </div>
 
+
+<!-- CTA -->
 
 <section class="cta">
 
@@ -457,16 +515,17 @@ the next generation of DMV talent.
 <p>
 DMVExposureHoops features basketball players from
 the classes of 2027–2031. Players can submit profile
-requests and purchase exposure services.
+requests and purchase exposure services to help get
+their name and game in front of more people.
 </p>
 
 <div class="hero-buttons">
 
-<a class="button primary" href="Players.js">
+<a class="button primary" href="players.html">
 Player Profiles
 </a>
 
-<a class="button secondary" href="Articles.js">
+<a class="button secondary" href="articles.html">
 Articles
 </a>
 
@@ -475,11 +534,13 @@ Articles
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
 © 2026 DMVExposureHoops
 
-<br><br>
+<br>
 
 DMV Basketball Exposure • Watchlists • Rankings • Profiles • Articles
 
