@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2028 DMV Rankings | DMVExposureHoops</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#080808;color:#fff}
+header{background:#111;border-bottom:2px solid #ff6a00;padding:20px;text-align:center}
+.logo{font-size:28px;font-weight:bold}.logo span{color:#ff6a00}
+nav{margin-top:15px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+nav a{color:#fff;text-decoration:none;font-size:14px;padding:6px}
+nav a:hover{color:#ff6a00}
+.container{max-width:1000px;margin:auto;padding:35px 20px}
+h1{text-align:center;color:#ff6a00;font-size:36px}
+.subtitle{text-align:center;color:#aaa;margin-bottom:30px}
+.search{width:100%;padding:14px;background:#151515;border:1px solid #333;border-radius:7px;color:#fff;font-size:16px;margin-bottom:20px}
+.ranking{display:flex;align-items:center;background:#121212;border:1px solid #292929;border-left:4px solid #ff6a00;border-radius:7px;padding:16px;margin-bottom:10px}
+.number{width:55px;font-size:24px;font-weight:bold;color:#ff6a00}
+.info{flex:1}
+.name{font-size:19px;font-weight:bold}
+.school{color:#aaa;margin-top:5px}
+footer{text-align:center;padding:35px;color:#666}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">DMV<span>Exposure</span>Hoops</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="Articles.js">Articles</a>
+<a href="Players.js">Player Profiles</a>
+<a href="2027-rankings.html">2027 Rankings</a>
+<a href="2028-rankings.html">2028 Rankings</a>
+<a href="2029-rankings.html">2029 Rankings</a>
+<a href="2030-rankings.html">2030 Rankings</a>
+<a href="2028-watchlist.html">2028 Watchlist</a>
+<a href="2029-watchlist.html">2029 Watchlist</a>
+<a href="2030-watchlist.html">2030 Watchlist</a>
+<a href="2031-watchlist.html">2031 Watchlist</a>
+</nav>
+</header>
+
+<div class="container">
+
+<h1>2028 DMV Top 50</h1>
+
+<p class="subtitle">
+DMV area rankings for the Class of 2028
+</p>
+
+<input id="search" class="search"
+placeholder="Search player or school..."
+onkeyup="displayRankings()">
+
+<div id="rankings"></div>
+
+</div>
+
+<footer>© 2026 DMVExposureHoops</footer>
+
+<script>
+
+const rankings=[
+
+["Isaiah Carter","The St. James (VA)"],
+["Chacho Womack","Petersburg High School (VA)"],
+["Damien Robinson","St. Paul VI Catholic (VA)"],
+["Nash Avery","Archbishop Spalding (MD)"],
+["Ephriam Moore","Oak Hill Academy (VA)"],
+["Jaleel Smith","Oak Hill Academy (VA)"],
+["Kareem Smith-Bey","St. John’s College High School (DC)"],
+["Dave Mbuyamba","Gonzaga College High School (DC)"],
+["Jadah Washington","Sidwell Friends School (DC)"],
+["Billy Stanfield III","Calvert Hall College (MD)"],
+["Abdul Tarawally","Archbishop Carroll (DC)"],
+["Elijah McQueen","Bishop O’Connell (VA)"],
+["Terry Brooks III","Bishop McNamara (MD)"],
+["Mazari Browne","West Nottingham Academy (MD)"],
+["Kyle Brown","St. John’s College High School (DC)"],
+["Mu’aadh Muhammad","Mount Zion Prep (MD)"],
+["Rashard Miller","Mount Zion National (MD)"],
+["Sonny Moore","McDonogh School (MD)"],
+["Aaron Early Jr.","Mount St. Joseph (MD)"],
+["Khyair Phillips","Bishop McNamara (MD)"],
+["Majok Aguek","Georgetown Preparatory School (MD)"],
+["Patrick Shime","Gonzaga College High School (DC)"],
+["Jahlil Waheed","Gonzaga College High School (DC)"],
+["Elijah Hall","Theodore Roosevelt High School (DC)"],
+["Antwan Williams","Our Lady of Mount Carmel (MD)"],
+["Jordan Fox","Cardozo Education Campus (DC)"],
+["Brayden Langston","Massanutten Military Academy (VA)"],
+["Ryan Bahr","St. Paul VI Catholic (VA)"],
+["Devin Ainsworth","St. Stephen’s and St. Agnes (VA)"],
+["Aaron Bryant","Gillion Academy (VA)"],
+["Kamdon Brangman-Cain","Blue Ridge School (VA)"],
+["Eziah Goodson","Blue Ridge School (VA)"],
+["Connor Cully","Bishop O’Connell (VA)"],
+["Connor Miles","Episcopal High School (VA)"],
+["Jayden Betz","The St. James Academy (VA)"],
+["Roman Dennis","Varina High School (VA)"],
+["Cameron Jefferson","Bethel Academy (VA)"],
+["Danny Mooney","Collegiate School (VA)"],
+["Aiden Acquah","St. Paul VI Catholic (VA)"],
+["Jayden Banks","Highland School (VA)"],
+["Devin Mikell","Stuart Hall School (VA)"],
+["Rashad Shaw","Landstown High School (VA)"],
+["Legend Bunch","Miller School (VA)"],
+["Jaeden Palmer","Fairfax Christian School (VA)"],
+["Aiden Friend","St. Stephen’s and St. Agnes (VA)"],
+["Jahad Mansour","Edison High School (VA)"],
+["Owen Jackson","Fort Chiswell High School (VA)"],
+["Braylan Bell","Gar-Field High School (VA)"],
+["Javarius Thurston","Hermitage High School (VA)"],
+["Garrett Overbay","Christiansburg High School (VA)"]
+
+];
+
+function displayRankings(){
+
+const search=document.getElementById("search").value.toLowerCase();
+const container=document.getElementById("rankings");
+
+container.innerHTML="";
+
+rankings.forEach((player,index)=>{
+
+if(player[0].toLowerCase().includes(search) ||
+player[1].toLowerCase().includes(search)){
+
+container.innerHTML+=`
+<div class="ranking">
+<div class="number">${index+1}</div>
+<div class="info">
+<div class="name">${player[0]}</div>
+<div class="school">${player[1]}</div>
+</div>
+</div>
+`;
+
+}
+
+});
+
+}
+
+displayRankings();
+
+</script>
+
+</body>
+</html>
