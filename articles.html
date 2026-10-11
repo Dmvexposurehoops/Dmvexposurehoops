@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Articles | DMVExposureHoops</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #080808;
+  color: white;
+}
+
+header {
+  background: #101010;
+  border-bottom: 2px solid #ff6a00;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ff6a00;
+}
+
+nav {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 7px 10px;
+}
+
+nav a:hover {
+  color: #ff6a00;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #999;
+  margin-bottom: 40px;
+}
+
+.article {
+  background: #121212;
+  border: 1px solid #292929;
+  border-left: 4px solid #ff6a00;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 25px;
+}
+
+.article h2 {
+  color: #ff6a00;
+  margin-top: 0;
+}
+
+.meta {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.content {
+  color: #ccc;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+DMV<span>Exposure</span>Hoops
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="articles.html">Articles</a>
+<a href="players.html">Player Profiles</a>
+
+<a href="2027-rankings.html">2027 Rankings</a>
+<a href="2028-rankings.html">2028 Rankings</a>
+<a href="2029-rankings.html">2029 Rankings</a>
+<a href="2030-rankings.html">2030 Rankings</a>
+
+<a href="2028-watchlist.html">2028 Watchlist</a>
+<a href="2029-watchlist.html">2029 Watchlist</a>
+<a href="2030-watchlist.html">2030 Watchlist</a>
+<a href="2031-watchlist.html">2031 Watchlist</a>
+</nav>
+
+</header>
+
+<div class="container">
+
+<h1>Articles</h1>
+
+<p class="subtitle">
+DMV basketball news, features and player coverage
+</p>
+
+<div id="articles-container"></div>
+
+</div>
+
+<footer>
+© 2026 DMVExposureHoops
+</footer>
+
+<script src="Articles.js"></script>
+
+<script>
+
+const container = document.getElementById("articles-container");
+
+articles.forEach(article => {
+
+  const card = document.createElement("article");
+
+  card.className = "article";
+
+  card.innerHTML = `
+
+    <h2>${article.title}</h2>
+
+    <div class="meta">
+      Class of ${article.classYear} • ${article.date}
+    </div>
+
+    <div class="content">
+      ${article.content}
+    </div>
+
+  `;
+
+  container.appendChild(card);
+
+});
+
+</script>
+
+</body>
+</html>
