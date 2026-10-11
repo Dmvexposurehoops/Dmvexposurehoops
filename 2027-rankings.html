@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2027 DMV Rankings | DMVExposureHoops</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#080808;
+color:#fff;
+}
+header{
+background:#111;
+border-bottom:2px solid #ff6a00;
+padding:20px;
+text-align:center;
+}
+.logo{font-size:28px;font-weight:bold}
+.logo span{color:#ff6a00}
+nav{
+margin-top:15px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+}
+nav a{
+color:#fff;
+text-decoration:none;
+font-size:14px;
+padding:6px;
+}
+nav a:hover{color:#ff6a00}
+.container{
+max-width:1000px;
+margin:auto;
+padding:35px 20px;
+}
+h1{
+text-align:center;
+color:#ff6a00;
+font-size:36px;
+}
+.subtitle{
+text-align:center;
+color:#aaa;
+margin-bottom:30px;
+}
+.search{
+width:100%;
+padding:14px;
+background:#151515;
+border:1px solid #333;
+border-radius:7px;
+color:#fff;
+font-size:16px;
+margin-bottom:20px;
+}
+.ranking{
+display:flex;
+align-items:center;
+background:#121212;
+border:1px solid #292929;
+border-left:4px solid #ff6a00;
+border-radius:7px;
+padding:16px;
+margin-bottom:10px;
+}
+.number{
+width:55px;
+font-size:24px;
+font-weight:bold;
+color:#ff6a00;
+}
+.info{flex:1}
+.name{
+font-size:19px;
+font-weight:bold;
+}
+.school{
+color:#aaa;
+margin-top:5px;
+}
+footer{
+text-align:center;
+padding:35px;
+color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">DMV<span>Exposure</span>Hoops</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="Articles.js">Articles</a>
+<a href="Players.js">Player Profiles</a>
+
+<a href="2027-rankings.html">2027 Rankings</a>
+<a href="2028-rankings.html">2028 Rankings</a>
+<a href="2029-rankings.html">2029 Rankings</a>
+<a href="2030-rankings.html">2030 Rankings</a>
+
+<a href="2028-watchlist.html">2028 Watchlist</a>
+<a href="2029-watchlist.html">2029 Watchlist</a>
+<a href="2030-watchlist.html">2030 Watchlist</a>
+<a href="2031-watchlist.html">2031 Watchlist</a>
+</nav>
+</header>
+
+<div class="container">
+
+<h1>2027 DMV Top 50</h1>
+
+<p class="subtitle">
+DMV area rankings for the Class of 2027
+</p>
+
+<input
+id="search"
+class="search"
+type="text"
+placeholder="Search player or school..."
+onkeyup="displayRankings()"
+>
+
+<div id="rankings"></div>
+
+</div>
+
+<footer>
+© 2026 DMVExposureHoops
+</footer>
+
+<script>
+
+const rankings = [
+
+["J’Lon Lyons","Grace Brethren Christian"],
+["Brandon Woodard","Bishop McNamara"],
+["Terence Jones III","St. Frances Academy"],
+["Ian Condon","Sidwell Friends School"],
+["Corey Dixon","Bishop O’Connell"],
+["Jacoby Briscoe","The St. James Academy"],
+["Jordan Hunter","Highland School"],
+["Jymin Veney","St. John’s College High School"],
+["Jared Jeffers","DeMatha Catholic"],
+["Brian Mitchell Jr.","St. Paul VI Catholic"],
+["Kirby Duran","Bishop McNamara"],
+["Daniel Abass","DeMatha Catholic"],
+["Ben Kalonji","Massanutten Military Academy"],
+["Jahmai Drayton","The St. James"],
+["Jacob Canton","Mt. Zion Preparatory Academy"],
+["Jordan Taylor","St. John’s College High School"],
+["Ashton Graves","Hudson Catholic"],
+["Lincoln Vinson","Oak Hill Academy"],
+["Joe Nunez","The St. James Academy"],
+["Amani Asare","Highland School"],
+["Simas Kacerauskas","Episcopal High School"],
+["Farrell Djossinou","St. Paul VI Catholic"],
+["Isaiah Carpenter","Clinton Grace Christian"],
+["Junior Mancho","Our Lady of Mount Carmel"],
+["Keon Scott","Meade High School"],
+["Izzy Tchoubfong","The Bullis School"],
+["Bam Bolding","Archbishop Carroll"],
+["Jay Green","Springdale Prep"],
+["Kyle Logan","Riverdale Baptist"],
+["Brandon Brooks","C.H. Flowers High School"],
+["Makiah Gray","The St. James Academy"],
+["Judah Bontemps","The St. James Academy"],
+["Christian Dinges","Fork Union Military Academy"],
+["Matthew Mena","St. Paul VI Catholic"],
+["Keaton Gregory","Trinity Episcopal School"],
+["Mason Ridgeway","St. Frances Academy"],
+["Odita Aguolu","Miller School"],
+["Will Braun-Duin","John Handley High School"],
+["Jamison Ross","Highland School"],
+["Donnell Jarrett Jr.","Woodside High School"],
+["Trey Barnhart","Kellam High School"],
+["Jayden Brown","St. Anne’s-Belfield School"],
+["Dean Williams","Catholic High School"],
+["Makai Ragland","Albemarle High School"],
+["Chuma Achufusi","Episcopal High School"],
+["Brady Burnette","St. Christopher’s School"],
+["Elijah Simpkins","Bishop Ireton"],
+["Anthony Garris","The Potomac School"],
+["Josiah Law","Landstown High School"],
+["Nathan Lessley","Cox High School"]
+
+];
+
+function displayRankings(){
+
+const search =
+document.getElementById("search").value.toLowerCase();
+
+const container =
+document.getElementById("rankings");
+
+container.innerHTML="";
+
+rankings.forEach((player,index)=>{
+
+if(
+player[0].toLowerCase().includes(search) ||
+player[1].toLowerCase().includes(search)
+){
+
+container.innerHTML += `
+<div class="ranking">
+
+<div class="number">
+${index+1}
+</div>
+
+<div class="info">
+
+<div class="name">
+${player[0]}
+</div>
+
+<div class="school">
+${player[1]}
+</div>
+
+</div>
+
+</div>
+`;
+
+}
+
+});
+
+}
+
+displayRankings();
+
+</script>
+
+</body>
+</html>
