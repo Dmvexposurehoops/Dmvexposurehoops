@@ -4,48 +4,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Player Profiles | DMVExposureHoops</title>
+<title>Player Profile | DMVExposureHoops</title>
 <style>
 :root{--orange:#ff6a00;--bg:#101010;--card:#1b1b1b}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:#fff;font-family:Arial,sans-serif}
+body{background:var(--bg);color:white;font-family:Arial,sans-serif;min-height:100vh}
 header{background:#080808;border-bottom:2px solid var(--orange);padding:20px 6%}
-.nav{max-width:1150px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.nav{max-width:1000px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
 .logo{font-size:21px;font-weight:900;color:white;text-decoration:none}
 .logo span{color:var(--orange)}
-nav{display:flex;gap:18px}
-nav a{color:#fff;text-decoration:none;font-size:14px}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
 nav a:hover{color:var(--orange)}
-.hero{text-align:center;padding:55px 20px;background:radial-gradient(ellipse at top,#48200b,#101010 70%)}
-.hero small{color:var(--orange);letter-spacing:3px;font-weight:bold}
-h1{font-size:clamp(32px,6vw,52px);margin:12px 0}
-.hero p{color:#bbb;line-height:1.6}
-main{max-width:1150px;margin:auto;padding:28px 20px 60px}
-.controls{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
-input,select{background:#202020;color:white;border:1px solid #444;border-radius:7px;padding:13px;font-size:15px}
-input{flex:1;min-width:190px}
-select{min-width:150px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:var(--card);border:1px solid #333;border-radius:12px;overflow:hidden}
-.card-top{padding:20px;background:linear-gradient(135deg,#48200b,#171717);border-bottom:1px solid #333}
-.tag{display:inline-block;background:var(--orange);color:#111;font-weight:bold;font-size:12px;padding:7px 10px;border-radius:4px}
-.initials{text-align:right;font-size:45px;font-weight:900;color:#ffffff35;margin-top:12px}
-.card-body{padding:20px}
-.card h2{font-size:22px;margin-bottom:8px}
-.school{color:var(--orange);font-size:14px;margin-bottom:16px}
-.details{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.details span{background:#292929;color:#ddd;padding:7px 9px;border-radius:5px;font-size:12px}
-button,.button{display:inline-block;background:var(--orange);color:#111;border:0;border-radius:6px;padding:11px 14px;font-weight:bold;text-decoration:none;cursor:pointer;font-size:13px}
-.button.secondary{background:#333;color:white}
-.empty{display:none;color:#bbb;text-align:center;padding:35px}
-dialog{background:#191919;color:white;border:1px solid var(--orange);border-radius:12px;padding:25px;width:min(520px,calc(100% - 30px));margin:auto}
-dialog::backdrop{background:#000c}
-dialog h2{font-size:27px;margin:15px 0}
-dialog p{color:#ddd;line-height:1.7;margin:15px 0}
-.close{float:right;background:#333;color:white}
+main{max-width:900px;margin:auto;padding:35px 20px 70px}
+.back{display:inline-block;color:var(--orange);text-decoration:none;font-weight:bold;margin-bottom:25px}
+.profile-banner{padding:35px 25px;background:radial-gradient(ellipse at top right,#542508,#191919 70%);border:1px solid #383838;border-radius:13px;margin-bottom:25px}
+.eyebrow{color:var(--orange);font-weight:bold;letter-spacing:3px;font-size:12px}
+h1{font-size:clamp(32px,6vw,48px);margin:14px 0 8px}
+.school{color:#ccc;font-size:16px}
+.tag{display:inline-block;background:var(--orange);color:#111;padding:8px 11px;border-radius:4px;font-size:12px;font-weight:bold;margin-top:20px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:25px}
+.stat{background:var(--card);border:1px solid #333;border-radius:9px;padding:18px}
+.stat small{display:block;color:#aaa;text-transform:uppercase;font-size:11px;margin-bottom:8px;letter-spacing:1px}
+.stat strong{font-size:17px}
+.section{background:var(--card);border:1px solid #333;border-radius:12px;padding:25px;margin-bottom:20px}
+h2{font-size:21px;margin-bottom:16px}
+h2 span{color:var(--orange)}
+.writeup{color:#ddd;line-height:1.9;font-size:16px;white-space:pre-line}
+.team{color:#ddd;line-height:1.8}
+.button{display:inline-block;background:var(--orange);color:#111;text-decoration:none;font-weight:bold;padding:13px 17px;border-radius:6px;margin-top:10px}
+.missing{text-align:center;padding:70px 15px}
+.missing p{color:#bbb;line-height:1.7;margin:15px 0}
 footer{background:#080808;border-top:1px solid #333;text-align:center;padding:25px;color:#aaa;font-size:13px}
 footer strong{color:var(--orange)}
-@media(max-width:500px){header{padding:18px}.hero{padding:40px 15px}main{padding:22px 14px 45px}}
+@media(max-width:500px){header{padding:18px}main{padding:25px 14px 50px}.profile-banner,.section{padding:20px}}
 </style>
 </head>
 <body>
@@ -60,44 +52,13 @@ footer strong{color:var(--orange)}
 </div>
 </header>
 
-<section class="hero">
-<small>DMV BASKETBALL</small>
-<h1>PLAYER PROFILES</h1>
-<p>Discover players, explore their game, and follow their journey.</p>
-</section>
-
-<main>
-<div class="controls">
-<input id="search" type="search" placeholder="Search players, schools, positions..." aria-label="Search players">
-<select id="classFilter" aria-label="Filter by class">
-<option value="all">All Classes</option>
-<option value="2027">Class of 2027</option>
-<option value="2028">Class of 2028</option>
-<option value="2029">Class of 2029</option>
-<option value="2030">Class of 2030</option>
-<option value="2031">Class of 2031</option>
-</select>
-</div>
-<p id="results" style="color:#bbb;font-size:13px;margin-bottom:16px"></p>
-<div class="grid" id="playerGrid"></div>
-<div class="empty" id="empty">No players found. Try another search.</div>
-</main>
-
-<dialog id="profileDialog">
-<button class="close" id="closeDialog">Close ✕</button>
-<div style="color:#ff6a00;font-size:12px;letter-spacing:2px">PLAYER PROFILE</div>
-<h2 id="modalName"></h2>
-<div id="modalDetails"></div>
-<p id="modalBio"></p>
-<div id="modalLinks"></div>
-</dialog>
+<main id="content"></main>
 
 <footer><strong>DMVEXPOSUREHOOPS</strong><br><br>More exposure. More opportunity.</footer>
 
 <script>
-const players = [
-  {
-    id: "jeremiah-harris",
+const players = {
+  "jeremiah-harris": {
     name: "Jeremiah Harris",
     classYear: "2029",
     height: "6'4\"",
@@ -105,11 +66,10 @@ const players = [
     position: "Wing / Forward",
     school: "Woodbridge Senior High School",
     team: "Bayou Elite",
-    bio: "Jeremiah Harris is a versatile wing/forward known for slashing, rim protection, and a high basketball IQ. He impacts the game on both ends of the floor.",
+    writeup: "Jeremiah Harris is a Class of 2029 wing/forward at Woodbridge Senior High School who plays for Bayou Elite. At 6'4\", Harris brings versatility to the floor with his ability to attack the basket, protect the rim, and make smart decisions. His slashing ability allows him to put pressure on the defense, while his rim protection helps him contribute on the defensive end. With a high basketball IQ and an ability to impact both ends of the floor, Harris continues to develop his game as a versatile forward.",
     highlightLink: "https://x.com/jeremiahh2029/status/2082234007274627181"
   },
-  {
-    id: "princeton-dillard",
+  "princeton-dillard": {
     name: "Princeton Dillard",
     classYear: "2030",
     height: "5'11\"",
@@ -117,103 +77,62 @@ const players = [
     position: "PG / SG",
     school: "Bassett High School",
     team: "",
-    bio: "Princeton Dillard is a Class of 2030 guard with strong ball-handling skills, the ability to shoot on and off the ball, and the ability to get to the basket. He impacts both ends of the floor and is reported to be ranked #13 in the state.",
+    writeup: "Princeton Dillard is a Class of 2030 guard from Bassett High School who brings a versatile offensive skill set to the backcourt. Dillard's ball-handling allows him to create opportunities with the ball in his hands, while his shooting ability makes him a threat both on and off the ball. He can also get to the basket and put pressure on defenders by attacking the rim. On the other end of the floor, Dillard looks to contribute defensively and impact the game beyond scoring. Reported as the #13-ranked player in the state, Dillard is a guard to keep an eye on as he continues to develop.",
     highlightLink: ""
   }
-];
+};
 
-const grid = document.getElementById("playerGrid");
-const search = document.getElementById("search");
-const classFilter = document.getElementById("classFilter");
-const results = document.getElementById("results");
-const empty = document.getElementById("empty");
-const dialog = document.getElementById("profileDialog");
+const params = new URLSearchParams(window.location.search);
+const player = players[params.get("id")];
+const content = document.getElementById("content");
 
-function escapeHTML(value) {
-  return String(value || "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[char]);
+if (!player) {
+  document.title = "Player Not Found | DMVExposureHoops";
+  content.innerHTML = `
+    <section class="missing">
+      <h1>Player Not Found</h1>
+      <p>This player profile could not be found. Return to the player directory to browse available profiles.</p>
+      <a class="button" href="players.html">Back to Players</a>
+    </section>`;
+} else {
+  document.title = `${player.name} | DMVExposureHoops`;
+
+  content.innerHTML = `
+    <a class="back" href="players.html">← Back to All Players</a>
+
+    <section class="profile-banner">
+      <div class="eyebrow">DMVEXPOSUREHOOPS PLAYER PROFILE</div>
+      <h1>${player.name}</h1>
+      <div class="school">${player.school}</div>
+      <span class="tag">CLASS OF ${player.classYear}</span>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><small>Position</small><strong>${player.position}</strong></div>
+      <div class="stat"><small>Height</small><strong>${player.height}</strong></div>
+      <div class="stat"><small>Weight</small><strong>${player.weight}</strong></div>
+      <div class="stat"><small>Class</small><strong>${player.classYear}</strong></div>
+    </section>
+
+    <section class="section">
+      <h2>Player <span>Writeup</span></h2>
+      <p class="writeup">${player.writeup}</p>
+    </section>
+
+    ${player.team ? `
+      <section class="section">
+        <h2>Team <span>Information</span></h2>
+        <p class="team"><strong>School:</strong> ${player.school}<br><strong>AAU Team:</strong> ${player.team}</p>
+      </section>` : ""}
+
+    ${player.highlightLink ? `
+      <section class="section">
+        <h2>Highlights &amp; <span>Film</span></h2>
+        <p class="team">Watch ${player.name}'s available highlight video.</p>
+        <a class="button" href="${player.highlightLink}" target="_blank" rel="noopener noreferrer">Watch Highlights →</a>
+      </section>` : ""}
+  `;
 }
-
-function renderPlayers() {
-  const query = search.value.trim().toLowerCase();
-  const selectedClass = classFilter.value;
-
-  const filtered = players.filter(player => {
-    const searchable = [
-      player.name, player.classYear, player.position,
-      player.school, player.team, player.bio
-    ].join(" ").toLowerCase();
-
-    return searchable.includes(query) &&
-      (selectedClass === "all" || player.classYear === selectedClass);
-  });
-
-  results.textContent = `${filtered.length} player${filtered.length === 1 ? "" : "s"} found`;
-  empty.style.display = filtered.length ? "none" : "block";
-
-  grid.innerHTML = filtered.map(player => `
-    <article class="card">
-      <div class="card-top">
-        <span class="tag">CLASS OF ${escapeHTML(player.classYear)}</span>
-        <div class="initials">${escapeHTML(player.name.split(" ").map(n => n[0]).join("").slice(0, 2))}</div>
-      </div>
-      <div class="card-body">
-        <h2>${escapeHTML(player.name)}</h2>
-        <div class="school">${escapeHTML(player.school)}</div>
-        <div class="details">
-          <span>${escapeHTML(player.position)}</span>
-          <span>${escapeHTML(player.height)}</span>
-          <span>${escapeHTML(player.weight)}</span>
-        </div>
-        <button data-profile="${escapeHTML(player.id)}">View Profile</button>
-        ${player.highlightLink ? `<a class="button secondary" href="${escapeHTML(player.highlightLink)}" target="_blank" rel="noopener noreferrer">Highlights</a>` : ""}
-      </div>
-    </article>
-  `).join("");
-}
-
-function openProfile(id) {
-  const player = players.find(item => item.id === id);
-  if (!player) return;
-
-  document.getElementById("modalName").textContent = player.name;
-
-  const details = [
-    "Class of " + player.classYear,
-    player.position,
-    player.height,
-    player.weight,
-    player.school,
-    player.team ? "AAU: " + player.team : ""
-  ].filter(Boolean);
-
-  document.getElementById("modalDetails").innerHTML =
-    `<div class="details">${details.map(item => `<span>${escapeHTML(item)}</span>`).join("")}</div>`;
-
-  document.getElementById("modalBio").textContent = player.bio;
-
-  document.getElementById("modalLinks").innerHTML = player.highlightLink
-    ? `<a class="button" href="${escapeHTML(player.highlightLink)}" target="_blank" rel="noopener noreferrer">Watch Highlights</a>`
-    : "";
-
-  dialog.showModal();
-}
-
-grid.addEventListener("click", event => {
-  const button = event.target.closest("[data-profile]");
-  if (button) openProfile(button.dataset.profile);
-});
-
-document.getElementById("closeDialog").addEventListener("click", () => dialog.close());
-search.addEventListener("input", renderPlayers);
-classFilter.addEventListener("change", renderPlayers);
-
-renderPlayers();
 </script>
 </body>
 </html>
