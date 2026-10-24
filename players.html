@@ -1,412 +1,219 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Player Profiles | DMVExposureHoops</title>
 <style>
-* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #080808;
-  color: white;
-}
-/* HEADER */
-header {
-  background: #101010;
-  border-bottom: 2px solid #ff6a00;
-  padding: 20px;
-  text-align: center;
-}
-.logo {
-  font-size: 30px;
-  font-weight: bold;
-}
-.logo span {
-  color: #ff6a00;
-}
-nav {
-  margin-top: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  padding: 8px 10px;
-  border-radius: 5px;
-}
-nav a:hover {
-  background: #ff6a00;
-}
-/* MAIN */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 50px 20px;
-}
-h1 {
-  text-align: center;
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-.subtitle {
-  text-align: center;
-  color: #999;
-  margin-bottom: 35px;
-}
-/* SEARCH */
-.search-container {
-  max-width: 650px;
-  margin: 0 auto 40px;
-}
-.search-container input {
-  width: 100%;
-  padding: 16px 18px;
-  background: #151515;
-  border: 1px solid #333;
-  border-radius: 7px;
-  color: white;
-  font-size: 16px;
-  outline: none;
-}
-.search-container input:focus {
-  border-color: #ff6a00;
-}
-.search-container input::placeholder {
-  color: #777;
-}
-/* PLAYER GRID */
-.player-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-/* PLAYER CARD */
-.player-card {
-  background: #121212;
-  border: 1px solid #292929;
-  border-top: 4px solid #ff6a00;
-  border-radius: 9px;
-  padding: 24px;
-  cursor: pointer;
-  transition: .2s;
-}
-.player-card:hover {
-  transform: translateY(-4px);
-  border-color: #ff6a00;
-}
-.player-card h2 {
-  margin: 0 0 12px;
-  color: #ff6a00;
-  font-size: 22px;
-}
-.player-card p {
-  margin: 7px 0;
-  color: #aaa;
-}
-.player-card strong {
-  color: white;
-}
-/* NO RESULTS */
-.no-results {
-  text-align: center;
-  color: #888;
-  font-size: 18px;
-  display: none;
-  padding: 30px;
-}
-/* FULL PROFILE */
-.profile-view {
-  display: none;
-  max-width: 850px;
-  margin: auto;
-}
-.back-button {
-  display: inline-block;
-  margin-bottom: 25px;
-  padding: 11px 18px;
-  border: 1px solid #ff6a00;
-  border-radius: 6px;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-}
-.back-button:hover {
-  background: #ff6a00;
-}
-.profile-card {
-  background: #121212;
-  border: 1px solid #292929;
-  border-top: 5px solid #ff6a00;
-  border-radius: 10px;
-  padding: 35px;
-}
-.profile-card h2 {
-  color: #ff6a00;
-  font-size: 34px;
-  margin-top: 0;
-}
-.profile-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  margin: 25px 0;
-}
-.profile-info div {
-  background: #1b1b1b;
-  padding: 15px;
-  border-radius: 6px;
-}
-.label {
-  display: block;
-  color: #777;
-  font-size: 12px;
-  margin-bottom: 5px;
-  text-transform: uppercase;
-}
-.profile-bio {
-  color: #ccc;
-  line-height: 1.8;
-  white-space: pre-line;
-}
-.highlight-button {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 13px 20px;
-  background: #ff6a00;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-}
-.highlight-button:hover {
-  background: #e65f00;
-}
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 35px 20px;
-  color: #666;
-  font-size: 14px;
-}
-/* MOBILE */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 34px;
-  }
-  .profile-card {
-    padding: 25px;
-  }
-  .profile-card h2 {
-    font-size: 28px;
-  }
-}
+:root{--orange:#ff6a00;--bg:#101010;--card:#1b1b1b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:#fff;font-family:Arial,sans-serif}
+header{background:#080808;border-bottom:2px solid var(--orange);padding:20px 6%}
+.nav{max-width:1150px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-size:21px;font-weight:900;color:white;text-decoration:none}
+.logo span{color:var(--orange)}
+nav{display:flex;gap:18px}
+nav a{color:#fff;text-decoration:none;font-size:14px}
+nav a:hover{color:var(--orange)}
+.hero{text-align:center;padding:55px 20px;background:radial-gradient(ellipse at top,#48200b,#101010 70%)}
+.hero small{color:var(--orange);letter-spacing:3px;font-weight:bold}
+h1{font-size:clamp(32px,6vw,52px);margin:12px 0}
+.hero p{color:#bbb;line-height:1.6}
+main{max-width:1150px;margin:auto;padding:28px 20px 60px}
+.controls{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+input,select{background:#202020;color:white;border:1px solid #444;border-radius:7px;padding:13px;font-size:15px}
+input{flex:1;min-width:190px}
+select{min-width:150px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid #333;border-radius:12px;overflow:hidden}
+.card-top{padding:20px;background:linear-gradient(135deg,#48200b,#171717);border-bottom:1px solid #333}
+.tag{display:inline-block;background:var(--orange);color:#111;font-weight:bold;font-size:12px;padding:7px 10px;border-radius:4px}
+.initials{text-align:right;font-size:45px;font-weight:900;color:#ffffff35;margin-top:12px}
+.card-body{padding:20px}
+.card h2{font-size:22px;margin-bottom:8px}
+.school{color:var(--orange);font-size:14px;margin-bottom:16px}
+.details{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.details span{background:#292929;color:#ddd;padding:7px 9px;border-radius:5px;font-size:12px}
+button,.button{display:inline-block;background:var(--orange);color:#111;border:0;border-radius:6px;padding:11px 14px;font-weight:bold;text-decoration:none;cursor:pointer;font-size:13px}
+.button.secondary{background:#333;color:white}
+.empty{display:none;color:#bbb;text-align:center;padding:35px}
+dialog{background:#191919;color:white;border:1px solid var(--orange);border-radius:12px;padding:25px;width:min(520px,calc(100% - 30px));margin:auto}
+dialog::backdrop{background:#000c}
+dialog h2{font-size:27px;margin:15px 0}
+dialog p{color:#ddd;line-height:1.7;margin:15px 0}
+.close{float:right;background:#333;color:white}
+footer{background:#080808;border-top:1px solid #333;text-align:center;padding:25px;color:#aaa;font-size:13px}
+footer strong{color:var(--orange)}
+@media(max-width:500px){header{padding:18px}.hero{padding:40px 15px}main{padding:22px 14px 45px}}
 </style>
 </head>
 <body>
-<!-- HEADER -->
 <header>
-<div class="logo">
-DMV<span>Exposure</span>Hoops
-</div>
+<div class="nav">
+<a class="logo" href="index.html">DMV<span>EXPOSURE</span>HOOPS</a>
 <nav>
 <a href="index.html">Home</a>
+<a href="players.html">Players</a>
 <a href="articles.html">Articles</a>
-<a href="players.html">Player Profiles</a>
-<a href="2027-rankings.html">2027 Rankings</a>
-<a href="2028-rankings.html">2028 Rankings</a>
-<a href="2029-rankings.html">2029 Rankings</a>
-<a href="2030-rankings.html">2030 Rankings</a>
-<a href="2028-watchlist.html">2028 Watchlist</a>
-<a href="2029-watchlist.html">2029 Watchlist</a>
-<a href="2030-watchlist.html">2030 Watchlist</a>
-<a href="2031-watchlist.html">2031 Watchlist</a>
 </nav>
+</div>
 </header>
-<!-- PLAYER LIST -->
-<div class="container" id="playerListPage">
-<h1>Player Profiles</h1>
-<p class="subtitle">
-Search DMVExposureHoops player profiles
-</p>
-<div class="search-container">
-<input
-  type="text"
-  id="searchInput"
-  placeholder="Search player name..."
-  autocomplete="off"
->
+
+<section class="hero">
+<small>DMV BASKETBALL</small>
+<h1>PLAYER PROFILES</h1>
+<p>Discover players, explore their game, and follow their journey.</p>
+</section>
+
+<main>
+<div class="controls">
+<input id="search" type="search" placeholder="Search players, schools, positions..." aria-label="Search players">
+<select id="classFilter" aria-label="Filter by class">
+<option value="all">All Classes</option>
+<option value="2027">Class of 2027</option>
+<option value="2028">Class of 2028</option>
+<option value="2029">Class of 2029</option>
+<option value="2030">Class of 2030</option>
+<option value="2031">Class of 2031</option>
+</select>
 </div>
-<div class="player-grid" id="playerGrid"></div>
-<div class="no-results" id="noResults">
-No players found.
-</div>
-</div>
-<!-- FULL PROFILE -->
-<div class="container profile-view" id="profilePage">
-<a class="back-button" onclick="showPlayerList()">
-← Back to Player Profiles
-</a>
-<div class="profile-card" id="profileContent"></div>
-</div>
-<!-- FOOTER -->
-<footer>
-© 2026 DMVExposureHoops
-<br><br>
-DMV Basketball Exposure • Watchlists • Rankings • Profiles • Articles
-</footer>
-<!-- LOAD PLAYER DATA -->
-<script src="Players.js"></script>
+<p id="results" style="color:#bbb;font-size:13px;margin-bottom:16px"></p>
+<div class="grid" id="playerGrid"></div>
+<div class="empty" id="empty">No players found. Try another search.</div>
+</main>
+
+<dialog id="profileDialog">
+<button class="close" id="closeDialog">Close ✕</button>
+<div style="color:#ff6a00;font-size:12px;letter-spacing:2px">PLAYER PROFILE</div>
+<h2 id="modalName"></h2>
+<div id="modalDetails"></div>
+<p id="modalBio"></p>
+<div id="modalLinks"></div>
+</dialog>
+
+<footer><strong>DMVEXPOSUREHOOPS</strong><br><br>More exposure. More opportunity.</footer>
+
 <script>
-/*
-========================================
-PLAYER PROFILE SYSTEM
-========================================
-*/
-const playerGrid = document.getElementById("playerGrid");
-const searchInput = document.getElementById("searchInput");
-const noResults = document.getElementById("noResults");
-const playerListPage = document.getElementById("playerListPage");
-const profilePage = document.getElementById("profilePage");
-const profileContent = document.getElementById("profileContent");
-/*
-========================================
-DISPLAY PLAYERS
-========================================
-*/
-function displayPlayers(list) {
-  playerGrid.innerHTML = "";
-  if (list.length === 0) {
-    noResults.style.display = "block";
-    return;
+const players = [
+  {
+    id: "jeremiah-harris",
+    name: "Jeremiah Harris",
+    classYear: "2029",
+    height: "6'4\"",
+    weight: "160 lbs",
+    position: "Wing / Forward",
+    school: "Woodbridge Senior High School",
+    team: "Bayou Elite",
+    bio: "Jeremiah Harris is a versatile wing/forward known for slashing, rim protection, and a high basketball IQ. He impacts the game on both ends of the floor.",
+    highlightLink: "https://x.com/jeremiahh2029/status/2082234007274627181"
+  },
+  {
+    id: "princeton-dillard",
+    name: "Princeton Dillard",
+    classYear: "2030",
+    height: "5'11\"",
+    weight: "125 lbs",
+    position: "PG / SG",
+    school: "Bassett High School",
+    team: "",
+    bio: "Princeton Dillard is a Class of 2030 guard with strong ball-handling skills, the ability to shoot on and off the ball, and the ability to get to the basket. He impacts both ends of the floor and is reported to be ranked #13 in the state.",
+    highlightLink: ""
   }
-  noResults.style.display = "none";
-  list.forEach((player, index) => {
-    const card = document.createElement("div");
-    card.className = "player-card";
-    card.onclick = function() {
-      openProfile(index, list);
-    };
-    card.innerHTML = `
-      <h2>${player.name}</h2>
-      <p>
-        <strong>Class:</strong>
-        ${player.classYear}
-      </p>
-      <p>
-        <strong>Height:</strong>
-        ${player.height}
-      </p>
-      <p>
-        <strong>Position:</strong>
-        ${player.position}
-      </p>
-      <p>
-        <strong>School:</strong>
-        ${player.school}
-      </p>
-    `;
-    playerGrid.appendChild(card);
+];
+
+const grid = document.getElementById("playerGrid");
+const search = document.getElementById("search");
+const classFilter = document.getElementById("classFilter");
+const results = document.getElementById("results");
+const empty = document.getElementById("empty");
+const dialog = document.getElementById("profileDialog");
+
+function escapeHTML(value) {
+  return String(value || "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function renderPlayers() {
+  const query = search.value.trim().toLowerCase();
+  const selectedClass = classFilter.value;
+
+  const filtered = players.filter(player => {
+    const searchable = [
+      player.name, player.classYear, player.position,
+      player.school, player.team, player.bio
+    ].join(" ").toLowerCase();
+
+    return searchable.includes(query) &&
+      (selectedClass === "all" || player.classYear === selectedClass);
   });
+
+  results.textContent = `${filtered.length} player${filtered.length === 1 ? "" : "s"} found`;
+  empty.style.display = filtered.length ? "none" : "block";
+
+  grid.innerHTML = filtered.map(player => `
+    <article class="card">
+      <div class="card-top">
+        <span class="tag">CLASS OF ${escapeHTML(player.classYear)}</span>
+        <div class="initials">${escapeHTML(player.name.split(" ").map(n => n[0]).join("").slice(0, 2))}</div>
+      </div>
+      <div class="card-body">
+        <h2>${escapeHTML(player.name)}</h2>
+        <div class="school">${escapeHTML(player.school)}</div>
+        <div class="details">
+          <span>${escapeHTML(player.position)}</span>
+          <span>${escapeHTML(player.height)}</span>
+          <span>${escapeHTML(player.weight)}</span>
+        </div>
+        <button data-profile="${escapeHTML(player.id)}">View Profile</button>
+        ${player.highlightLink ? `<a class="button secondary" href="${escapeHTML(player.highlightLink)}" target="_blank" rel="noopener noreferrer">Highlights</a>` : ""}
+      </div>
+    </article>
+  `).join("");
 }
-/*
-========================================
-SEARCH BY NAME ONLY
-========================================
-*/
-searchInput.addEventListener("input", function() {
-  const searchTerm = searchInput.value
-    .toLowerCase()
-    .trim();
-  const filteredPlayers = players.filter(player =>
-    player.name
-      .toLowerCase()
-      .includes(searchTerm)
-  );
-  displayPlayers(filteredPlayers);
+
+function openProfile(id) {
+  const player = players.find(item => item.id === id);
+  if (!player) return;
+
+  document.getElementById("modalName").textContent = player.name;
+
+  const details = [
+    "Class of " + player.classYear,
+    player.position,
+    player.height,
+    player.weight,
+    player.school,
+    player.team ? "AAU: " + player.team : ""
+  ].filter(Boolean);
+
+  document.getElementById("modalDetails").innerHTML =
+    `<div class="details">${details.map(item => `<span>${escapeHTML(item)}</span>`).join("")}</div>`;
+
+  document.getElementById("modalBio").textContent = player.bio;
+
+  document.getElementById("modalLinks").innerHTML = player.highlightLink
+    ? `<a class="button" href="${escapeHTML(player.highlightLink)}" target="_blank" rel="noopener noreferrer">Watch Highlights</a>`
+    : "";
+
+  dialog.showModal();
+}
+
+grid.addEventListener("click", event => {
+  const button = event.target.closest("[data-profile]");
+  if (button) openProfile(button.dataset.profile);
 });
-/*
-========================================
-OPEN FULL PROFILE
-========================================
-*/
-function openProfile(index, list) {
-  const player = list[index];
-  playerListPage.style.display = "none";
-  profilePage.style.display = "block";
-  profileContent.innerHTML = `
-    <h2>${player.name}</h2>
-    <div class="profile-info">
-      <div>
-        <span class="label">Class</span>
-        ${player.classYear}
-      </div>
-      <div>
-        <span class="label">Height</span>
-        ${player.height}
-      </div>
-      <div>
-        <span class="label">Weight</span>
-        ${player.weight}
-      </div>
-      <div>
-        <span class="label">Position</span>
-        ${player.position}
-      </div>
-      <div>
-        <span class="label">School</span>
-        ${player.school}
-      </div>
-      <div>
-        <span class="label">AAU Team</span>
-        ${player.aauTeam}
-      </div>
-    </div>
-    <h3>Player Bio</h3>
-    <div class="profile-bio">
-      ${player.bio}
-    </div>
-    ${
-      player.highlightLink
-      ?
-      `
-      <a
-        class="highlight-button"
-        href="${player.highlightLink}"
-        target="_blank"
-      >
-        View Highlights
-      </a>
-      `
-      :
-      ""
-    }
-  `;
-  window.scrollTo(0, 0);
-}
-/*
-========================================
-BACK TO PLAYER LIST
-========================================
-*/
-function showPlayerList() {
-  profilePage.style.display = "none";
-  playerListPage.style.display = "block";
-  window.scrollTo(0, 0);
-}
-/*
-========================================
-INITIAL LOAD
-========================================
-*/
-displayPlayers(players);
+
+document.getElementById("closeDialog").addEventListener("click", () => dialog.close());
+search.addEventListener("input", renderPlayers);
+classFilter.addEventListener("change", renderPlayers);
+
+renderPlayers();
 </script>
 </body>
 </html>
